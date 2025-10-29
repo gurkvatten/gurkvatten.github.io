@@ -176,6 +176,59 @@ const App = () => {
             {/* 4. PROJEKT SEKTION - Uppdaterad för mobilfokus */}
             {/* --- */}
             <section className="py-24 bg-base-200 w-full">
+                <div className="container mx-auto px-4 max-w-4xl">
+                    <h2 className="text-4xl font-bold text-center mb-12">
+                        Nyheter & <span className="text-primary">vad jag gör nu</span> 📝
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {[
+                            {
+                                date: "Okt 2025",
+                                title: "Bygger Formel 1-manager i SwiftUI",
+                                body: "Jag har börjat implementera ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
+                            },
+                            {
+                                date: "Sep 2025",
+                                title: "Experimenterar med SwiftUI-animeringar",
+                                body: "Just nu testar jag hur bilarnas rörelser kan animeras på banan. Det är klurigt men väldigt roligt!",
+                            },
+                            {
+                                date: "Sep 2025",
+                                title: "Påbörjade en ny utbildning",
+                                body: "Jag har börjat en utbildning i Java och ser fram emot att lära mig mer",
+                            },
+                            {
+                                date: "Aug 2025",
+                                title: "Nytt personligt projekt!",
+                                body: "Startade utvecklingen av mitt egna Formel 1-managementspel, inspirerat av klassikern Fastest Lap Racing Manager.",
+                            },
+                        ].map((post, i) => (
+                            <div
+                                key={i}
+                                className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <div className="card-body">
+                                    <time className="text-sm text-base-content/60">{post.date}</time>
+                                    <h3 className="text-2xl font-semibold mt-2 text-primary">
+                                        {post.title}
+                                    </h3>
+                                    <p className="text-base-content/70 mt-3 leading-relaxed">
+                                        {post.body}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="text-center mt-12 text-base-content/60 italic">
+                        Senast uppdaterad: Oktober 2025
+                    </p>
+                </div>
+            </section>
+
+
+            <section className="py-24 bg-base-200 w-full">
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl font-bold text-center mb-16">
                         Utvalda <span className="text-primary">Projekt</span> 💼
@@ -220,6 +273,7 @@ const App = () => {
                                 </div>
                             </div>
                         </div>
+
 
                         {/* Projekt 3 Card: Fullstack (Java Backend) */}
                         <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
