@@ -51,7 +51,7 @@ const App = () => {
                             </a>
 
                             <a
-                                href="https://linkedin.com/in/dittnamn"
+                                href="www.linkedin.com/in/johan-karlsson-871537223"
                                 target="_blank"
                                 className="btn btn-outline btn-lg flex items-center gap-2"
                             >
