@@ -1,4 +1,4 @@
-
+import profilBild from './assets/johan-profil.jpeg';
 const App = () => {
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
@@ -12,7 +12,8 @@ const App = () => {
                         {/* 1.1 PROFILBILD */}
                         <div className="avatar mb-6">
                             <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
-                                <img src="https://picsum.photos/300/300?grayscale" alt="Johan Karlsson Profilbild" />
+                                {/* ERSÄTTER DENNA LÄNK MED DEN IMPORTERADE VARIABELN */}
+                                <img src={profilBild} alt="Johan Karlsson Profilbild" />
                             </div>
                         </div>
 
