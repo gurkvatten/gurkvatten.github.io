@@ -2,7 +2,7 @@
 const App = () => {
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
-
+/* test */
             {/* 1. OM MIG / HERO SEKTION */}
             {/* ... (Hero-sektionen är oförändrad) ... */}
             <section className="py-24 md:py-32 w-full flex-grow">
