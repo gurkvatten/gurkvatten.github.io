@@ -185,7 +185,7 @@ const App = () => {
                         {[
                             {
                                 date: "Okt 2025",
-                                title: "Bygger Formel 1-manager i SwiftUI",
+                                title: "Bygger Racing-manager i SwiftUI",
                                 body: "Jag har börjat implementera ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
                             },
                             {
@@ -201,7 +201,7 @@ const App = () => {
                             {
                                 date: "Aug 2025",
                                 title: "Nytt personligt projekt!",
-                                body: "Startade utvecklingen av mitt egna Formel 1-managementspel, inspirerat av klassikern Fastest Lap Racing Manager.",
+                                body: "Startade utvecklingen av mitt egna Racing-managementspel, inspirerat av klassikern Grand Prix Manager av Microprose.",
                             },
                         ].map((post, i) => (
                             <div
