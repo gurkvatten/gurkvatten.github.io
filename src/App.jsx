@@ -1,10 +1,10 @@
 import profilBild from './assets/johan-profil.jpeg';
+
 const App = () => {
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
 
-            {/* 1. OM MIG / HERO SEKTIONen */}
-            {/* ... (Hero-sektionen är oförändrad) ... */}
+            {/* 1. OM MIG / HERO SEKTION */}
             <section className="py-24 md:py-32 w-full flex-grow">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center">
@@ -12,7 +12,7 @@ const App = () => {
                         {/* 1.1 PROFILBILD */}
                         <div className="avatar mb-6">
                             <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
-                                {/* ERSÄTTER DENNA LÄNK MED DEN IMPORTERADE VARIABELN */}
+                                {/* Använder nu den statiska URL:en */}
                                 <img src={profilBild} alt="Johan Karlsson Profilbild" />
                             </div>
                         </div>
@@ -26,7 +26,7 @@ const App = () => {
                         </h1>
 
                         <p className="text-base-content/70 text-xl mb-12 max-w-2xl mx-auto">
-                            Jag är en utvecklare med passion för rena och användarvänliga gränssnitt. Jag har erfarenhet av [Teknik A], [Teknik B] och älskar att lära mig nya saker.
+                            Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från både fullstack-projekt och frontend-arbete med Flutter, och jag drivs av att skapa rena och funktionella lösningar.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-center">
@@ -48,34 +48,35 @@ const App = () => {
                 </div>
             </section>
 
+            {/* --- */}
             {/* 2. FÄRDIGHETER SEKTION */}
+            {/* --- */}
             <section className="py-16 bg-base-200 w-full">
-                {/* ... (Färdigheter sektionen är oförändrad) ... */}
                 <div className="container mx-auto px-4 max-w-3xl">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Mina <span className="text-primary">Färdigheter</span>
                     </h2>
 
                     <div className="space-y-6">
-                        {/* ... Färdighets stapeldiagram ... */}
+                        {/* FÄRDIGHETER */}
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end">
                             <span className="text-xl font-semibold mb-2 sm:mb-0">Swift</span>
-                            <span className="font-bold text-lg text-primary">80%</span>
+                            <span className="font-bold text-lg text-accent">80%</span>
                         </div>
                         <progress className="progress progress-primary w-full h-4" value="80" max="100"></progress>
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
                             <span className="text-xl font-semibold mb-2 sm:mb-0">Java</span>
-                            <span className="font-bold text-lg text-primary">80%</span>
+                            <span className="font-bold text-lg text-accent">80%</span>
                         </div>
                         <progress className="progress progress-primary w-full h-4" value="80" max="100"></progress>
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
                             <span className="text-xl font-semibold mb-2 sm:mb-0">Kotlin</span>
-                            <span className="font-bold text-lg text-primary">70%</span>
+                            <span className="font-bold text-lg text-accent">70%</span>
                         </div>
                         <progress className="progress progress-primary w-full h-4" value="70" max="100"></progress>
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
                             <span className="text-xl font-semibold mb-2 sm:mb-0">Backend (t.ex. Node.js/Python)</span>
-                            <span className="font-bold text-lg text-primary">65%</span>
+                            <span className="font-bold text-lg text-accent">65%</span>
                         </div>
                         <progress className="progress progress-primary w-full h-4" value="65" max="100"></progress>
                     </div>
@@ -83,7 +84,7 @@ const App = () => {
             </section>
 
             {/* --- */}
-            {/* 3. NY SEKTION: ARBETSLIVSERFARENHET & UTBILDNING */}
+            {/* 3. ARBETSLIVSERFARENHET & UTBILDNING */}
             {/* --- */}
             <section className="py-24 bg-base-100 w-full">
                 <div className="container mx-auto px-4 max-w-4xl">
@@ -91,7 +92,7 @@ const App = () => {
                         Erfarenhet & <span className="text-primary">Utbildning</span> 🧑‍💻
                     </h2>
 
-                    {/* DaisyUI Timeline (Timeline-komponenten är responsiv: centrerad på stor skärm, vänsterställd på liten) */}
+                    {/* DaisyUI Timeline */}
                     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
 
                         {/* Post 1: Senaste Jobbet */}
@@ -100,10 +101,10 @@ const App = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-primary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                             </div>
                             <div className="timeline-start md:text-end mb-10">
-                                <time className="font-mono italic text-sm">2022 - Idag</time>
-                                <div className="text-2xl font-black text-primary">Senior Frontendutvecklare</div>
-                                <h4 className="text-lg font-semibold">Tech Innovations AB</h4>
-                                <p className="text-base-content/80 mt-1">Leda utvecklingen av nästa generations kundportal med React och Next.js, inklusive prestandaoptimering och A/B-testning.</p>
+                                <time className="font-mono italic text-sm">2025 - Idag</time>
+                                <div className="text-2xl font-black text-primary">Yrkeshögskola</div>
+                                <h4 className="text-lg font-semibold">IT högskolan Javautvecklare</h4>
+                                <p className="text-base-content/80 mt-1">Just nu pluggar jag Java.</p>
                             </div>
                             <hr className="bg-primary"/>
                         </li>
@@ -115,10 +116,10 @@ const App = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-secondary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                             </div>
                             <div className="timeline-end mb-10">
-                                <time className="font-mono italic text-sm">2018 - 2022</time>
-                                <div className="text-2xl font-black">Fullstackutvecklare</div>
-                                <h4 className="text-lg font-semibold">Digital Solutions A/S</h4>
-                                <p className="text-base-content/80 mt-1">Ansvarig för både frontend- (Vue) och backend-utveckling (Node.js/Express) av interna system.</p>
+                                <time className="font-mono italic text-sm">2024</time>
+                                <div className="text-2xl font-black text-secondary">Frontend utvecklare</div>
+                                <h4 className="text-lg font-semibold">Eventstaden</h4>
+                                <p className="text-base-content/80 mt-1">Jobbade med frontendkomponenter i Flutter.</p>
                             </div>
                             <hr className="bg-secondary"/>
                         </li>
@@ -130,10 +131,10 @@ const App = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-accent"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                             </div>
                             <div className="timeline-start md:text-end mb-10">
-                                <time className="font-mono italic text-sm">2016 - 2018</time>
+                                <time className="font-mono italic text-sm">2022 - 2024</time>
                                 <div className="text-2xl font-black text-accent">Yrkeshögskoleexamen</div>
-                                <h4 className="text-lg font-semibold">Systemutvecklare, Nackademin</h4>
-                                <p className="text-base-content/80 mt-1">Fokus på agila metoder, C# och webbutveckling med databasdesign (SQL).</p>
+                                <h4 className="text-lg font-semibold">Folkuniversitetet Mobilapplikationsutvecklare</h4>
+                                <p className="text-base-content/80 mt-1">Fokus på Swift, Kotlin och lite backend.</p>
                             </div>
                             <hr className="bg-accent"/>
                         </li>
@@ -145,8 +146,8 @@ const App = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                             </div>
                             <div className="timeline-end mb-10">
-                                <time className="font-mono italic text-sm">2016</time>
-                                <div className="text-2xl font-black">Karriärstart</div>
+                                <time className="font-mono italic text-sm">2022</time>
+                                <div className="text-2xl font-black text-primary">Karriärstart</div>
                                 <h4 className="text-lg font-semibold">Startade karriären inom tech!</h4>
                             </div>
                         </li>
@@ -155,27 +156,29 @@ const App = () => {
                 </div>
             </section>
 
-            {/* 4. PROJEKT SEKTION */}
-            <section className="py-24 bg-base-200 w-full"> {/* Ändrade bakgrunden för att kontrastera mot timeline */}
+            {/* --- */}
+            {/* 4. PROJEKT SEKTION - Uppdaterad för mobilfokus */}
+            {/* --- */}
+            <section className="py-24 bg-base-200 w-full">
                 <div className="container mx-auto px-4">
-                    {/* ... (Projekt sektionen är oförändrad) ... */}
                     <h2 className="text-4xl font-bold text-center mb-16">
                         Utvalda <span className="text-primary">Projekt</span> 💼
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-                        {/* Projekt 1 Card */}
-                        <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300"> {/* Ändrade kortens bakgrund till base-100 */}
+                        {/* Projekt 1 Card: iOS App (Swift) */}
+                        <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
                             <figure>
-                                <img src="https://picsum.photos/400/250?random=1" alt="Projektbild 1" className="w-full h-auto"/>
+                                {/* Platshållare för iOS app-skärm */}
+                                <img src="https://placehold.co/400x250/F8D76D/333333?text=Swift+iOS+App" alt="iOS App Projektbild" className="w-full h-auto"/>
                             </figure>
                             <div className="card-body p-6">
                                 <h3 className="card-title text-2xl">
-                                    E-handelsplattform
-                                    <div className="badge badge-primary">React</div>
+                                    iOS ToDo App
+                                    <div className="badge badge-primary">Swift</div>
                                 </h3>
-                                <p className="text-base-content/70">En fullt responsiv e-handelslösning byggd med Next.js och Stripe integration.</p>
+                                <p className="text-base-content/70">En native ToDo-app för iOS utvecklad med Swift och SwiftUI, med fokus på Core Data-lagring.</p>
                                 <div className="card-actions justify-end mt-4">
                                     <a href="#" target="_blank" className="btn btn-sm btn-outline">Se Live</a>
                                     <a href="#" target="_blank" className="btn btn-sm btn-primary">GitHub</a>
@@ -183,17 +186,18 @@ const App = () => {
                             </div>
                         </div>
 
-                        {/* Projekt 2 Card */}
+                        {/* Projekt 2 Card: Android App (Kotlin) */}
                         <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
                             <figure>
-                                <img src="https://picsum.photos/400/250?random=2" alt="Projektbild 2" className="w-full h-auto"/>
+                                {/* Platshållare för Android app-skärm */}
+                                <img src="https://placehold.co/400x250/00C49F/ffffff?text=Kotlin+Android+App" alt="Android App Projektbild" className="w-full h-auto"/>
                             </figure>
                             <div className="card-body p-6">
                                 <h3 className="card-title text-2xl">
-                                    Väderapp (PWA)
-                                    <div className="badge badge-secondary">Vue.js</div>
+                                    Väderprognos-app
+                                    <div className="badge badge-secondary">Kotlin</div>
                                 </h3>
-                                <p className="text-base-content/70">En Progressive Web App som hämtar data från OpenWeatherMap API och kan installeras offline.</p>
+                                <p className="text-base-content/70">En Android-app byggd i Kotlin med Jetpack Compose för UI, som använder OpenWeather API.</p>
                                 <div className="card-actions justify-end mt-4">
                                     <a href="#" target="_blank" className="btn btn-sm btn-outline">Se Live</a>
                                     <a href="#" target="_blank" className="btn btn-sm btn-primary">GitHub</a>
@@ -201,17 +205,18 @@ const App = () => {
                             </div>
                         </div>
 
-                        {/* Projekt 3 Card */}
+                        {/* Projekt 3 Card: Fullstack (Java Backend) */}
                         <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
                             <figure>
-                                <img src="https://picsum.photos/400/250?random=3" alt="Projektbild 3" className="w-full h-auto"/>
+                                {/* Platshållare för Backend/Java-tema */}
+                                <img src="https://placehold.co/400x250/FF8A8A/ffffff?text=Java+API" alt="Java API Projektbild" className="w-full h-auto"/>
                             </figure>
                             <div className="card-body p-6">
                                 <h3 className="card-title text-2xl">
-                                    Bloggmotor (CMS)
-                                    <div className="badge badge-accent">Node.js</div>
+                                    RESTful API Tjänst
+                                    <div className="badge badge-accent">Java</div>
                                 </h3>
-                                <p className="text-base-content/70">Ett headless CMS byggt med Express.js och MongoDB, fokuserat på hastighet och enkelhet.</p>
+                                <p className="text-base-content/70">En robust backend-tjänst skapad med Java och Spring Boot för att hantera användardata och autentisering.</p>
                                 <div className="card-actions justify-end mt-4">
                                     <a href="#" target="_blank" className="btn btn-sm btn-outline">Se Live</a>
                                     <a href="#" target="_blank" className="btn btn-sm btn-primary">GitHub</a>
@@ -222,8 +227,10 @@ const App = () => {
                 </div>
             </section>
 
+            {/* --- */}
             {/* 5. FOOTER */}
-            <footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto"> {/* Ändrade footern till base-100 */}
+            {/* --- */}
+            <footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto">
                 <aside>
                     <p>© 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.</p>
                 </aside>
