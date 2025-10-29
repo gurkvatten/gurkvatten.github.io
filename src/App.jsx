@@ -59,20 +59,20 @@ const App = () => {
                     <div className="space-y-6">
                         {/* ... Färdighets stapeldiagram ... */}
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end">
-                            <span className="text-xl font-semibold mb-2 sm:mb-0">JavaScript / TypeScript</span>
-                            <span className="font-bold text-lg text-primary">90%</span>
-                        </div>
-                        <progress className="progress progress-primary w-full h-4" value="90" max="100"></progress>
-                        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
-                            <span className="text-xl font-semibold mb-2 sm:mb-0">React / Next.js</span>
+                            <span className="text-xl font-semibold mb-2 sm:mb-0">Swift</span>
                             <span className="font-bold text-lg text-primary">80%</span>
                         </div>
                         <progress className="progress progress-primary w-full h-4" value="80" max="100"></progress>
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
-                            <span className="text-xl font-semibold mb-2 sm:mb-0">Tailwind CSS / DaisyUI</span>
-                            <span className="font-bold text-lg text-primary">95%</span>
+                            <span className="text-xl font-semibold mb-2 sm:mb-0">Java</span>
+                            <span className="font-bold text-lg text-primary">80%</span>
                         </div>
-                        <progress className="progress progress-primary w-full h-4" value="95" max="100"></progress>
+                        <progress className="progress progress-primary w-full h-4" value="80" max="100"></progress>
+                        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
+                            <span className="text-xl font-semibold mb-2 sm:mb-0">Kotlin</span>
+                            <span className="font-bold text-lg text-primary">70%</span>
+                        </div>
+                        <progress className="progress progress-primary w-full h-4" value="70" max="100"></progress>
                         <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end pt-4">
                             <span className="text-xl font-semibold mb-2 sm:mb-0">Backend (t.ex. Node.js/Python)</span>
                             <span className="font-bold text-lg text-primary">65%</span>
