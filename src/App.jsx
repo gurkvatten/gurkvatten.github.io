@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 
 
+
 const HeroSection = () => (
     <section className="py-24 md:py-32 w-full flex-grow ">
         <div className="container mx-auto px-4">
