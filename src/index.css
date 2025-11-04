@@ -1,9 +1,7 @@
 /* /src/App.css (eller motsvarande) */
 
 @import "tailwindcss";
-@plugin "daisyui" {
-    themes: false;
-}
+@plugin "daisyui";
 
 
 
