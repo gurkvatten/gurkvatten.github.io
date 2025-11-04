@@ -11,7 +11,7 @@ const HeroSection = () => (
         <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
                 <div className="avatar mb-6">
-                    <div className="w-32 rounded-full ring ring-neutral ring-offset-base-100 ring-offset-4 shadow-xl">
+                    <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
                         <img src={profilBild} alt="Johan Karlsson Profilbild" />
                     </div>
                 </div>
