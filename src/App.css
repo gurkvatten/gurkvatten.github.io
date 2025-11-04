@@ -1,8 +1,0 @@
-
-
-@import "tailwindcss";
-@plugin "daisyui" {
-    /* Konfigurera dina teman här så att de inte behöver vara i HTML: */
-    themes: lofi --default;
-    /* Då blir "light" standard och "business" (mörk) tillgänglig */
-}
