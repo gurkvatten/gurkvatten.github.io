@@ -1,20 +1,22 @@
 import profilBild from './assets/johan-profil.jpeg';
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+
 
 
 const App = () => {
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
 
-            {/* 1. OM MIG / HERO SEKTION */}
+
             <section className="py-24 md:py-32 w-full flex-grow">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto text-center">
 
-                        {/* 1.1 PROFILBILD */}
+
                         <div className="avatar mb-6">
-                            <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
-                                {/* Använder nu den statiska URL:en */}
+                            <div className="w-32 rounded-full ring ring-neutral ring-offset-base-100 ring-offset-4 shadow-xl">
                                 <img src={profilBild} alt="Johan Karlsson Profilbild" />
                             </div>
                         </div>
@@ -35,7 +37,7 @@ const App = () => {
                             <a
                                 href="mailto:johanwilhelmkarlsson@gmail.com"
                                 target="_blank"
-                                className="btn btn-outline btn-lg flex items-center gap-2"
+                                className="btn btn-outline btn-lg flex items-center gap-2 **transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary**"
                             >
                                 <FaEnvelope className="text-xl" />
                                 Kontakta Mig
@@ -44,7 +46,7 @@ const App = () => {
                             <a
                                 href="https://github.com/gurkvatten"
                                 target="_blank"
-                                className="btn btn-outline btn-lg flex items-center gap-2"
+                                className="btn btn-outline btn-lg flex items-center gap-2 **transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary**"
                             >
                                 <FaGithub className="text-xl" />
                                 GitHub
@@ -53,7 +55,7 @@ const App = () => {
                             <a
                                 href="www.linkedin.com/in/johan-karlsson-871537223"
                                 target="_blank"
-                                className="btn btn-outline btn-lg flex items-center gap-2"
+                                className="btn btn-outline btn-lg flex items-center gap-2 **transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary**"
                             >
                                 <FaLinkedin className="text-xl" />
                                 LinkedIn
@@ -196,7 +198,7 @@ const App = () => {
                             {
                                 date: "Sep 2025",
                                 title: "Påbörjade en ny utbildning",
-                                body: "Jag har börjat en utbildning i Java och ser fram emot att lära mig mer",
+                                body: "Jag har börjat en utbildning i Java och ser fram emot att lära mig mer.",
                             },
                             {
                                 date: "Aug 2025",
@@ -204,9 +206,13 @@ const App = () => {
                                 body: "Startade utvecklingen av mitt egna Racing-managementspel, inspirerat av klassikern Grand Prix Manager av Microprose.",
                             },
                         ].map((post, i) => (
-                            <div
+                            <motion.div
                                 key={i}
-                                className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                                className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
+                                initial={{ opacity: 0.4, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: i * 0.2 }}
+                                viewport={{ once: true }}
                             >
                                 <div className="card-body">
                                     <time className="text-sm text-base-content/60">{post.date}</time>
@@ -217,7 +223,7 @@ const App = () => {
                                         {post.body}
                                     </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
 
