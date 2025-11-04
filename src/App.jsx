@@ -83,7 +83,7 @@ const SkillsSection = () => {
                                 <span className="font-bold text-lg text-accent">{skill.value}%</span>
                             </div>
                             <progress
-                                className={`progress ${skill.color} w-full h-4`}
+                                className={`progress ${skill.color} w-full h-6`}
                                 value={skill.value}
                                 max="100"
                             ></progress>
@@ -116,12 +116,14 @@ const TimelineSection = () => (
                         <h4 className="text-lg font-semibold">IT högskolan Javautvecklare</h4>
                         <p className="text-base-content/80 mt-1">Just nu pluggar jag Java.</p>
                     </div>
-                    <hr className="bg-primary"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-primary" style={{ width: '8px' }}/>
                 </li>
 
                 {/* Post 2: Tidigare Jobb */}
                 <li>
-                    <hr className="bg-primary"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-primary" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-secondary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                     </div>
@@ -131,31 +133,35 @@ const TimelineSection = () => (
                         <h4 className="text-lg font-semibold">Eventstaden</h4>
                         <p className="text-base-content/80 mt-1">Jobbade med frontendkomponenter i Flutter.</p>
                     </div>
-                    <hr className="bg-secondary"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-secondary" style={{ width: '8px' }}/>
                 </li>
 
                 {/* Post 3: Utbildning */}
                 <li>
-                    <hr className="bg-secondary"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-secondary" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-accent"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                     </div>
-                    <div className="timeline-start md:text-end mb-10">
+                    <div className="timeline-start md:text-end mb-40">
                         <time className="font-mono italic text-sm">2022 - 2024</time>
                         <div className="text-2xl font-black text-accent">Yrkeshögskoleexamen</div>
                         <h4 className="text-lg font-semibold">Folkuniversitetet Mobilapplikationsutvecklare</h4>
                         <p className="text-base-content/80 mt-1">Fokus på Swift, Kotlin och lite backend.</p>
                     </div>
-                    <hr className="bg-accent"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-accent" style={{ width: '8px' }}/>
                 </li>
 
                 {/* Sista Post: Startpunkt */}
                 <li>
-                    <hr className="bg-accent"/>
+                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
+                    <hr className="bg-accent" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
                     </div>
-                    <div className="timeline-end mb-10">
+                    <div className="timeline-end mb-40">
                         <time className="font-mono italic text-sm">2022</time>
                         <div className="text-2xl font-black text-primary">Karriärstart</div>
                         <h4 className="text-lg font-semibold">Startade karriären inom tech!</h4>
@@ -165,7 +171,6 @@ const TimelineSection = () => (
         </div>
     </section>
 );
-
 
 // --- 4. KOMPONENT: Nyheter & Uppdateringar ---
 const NewsSection = () => {
