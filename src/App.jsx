@@ -1,37 +1,174 @@
+import { useState, useEffect } from 'react';
 import profilBild from './assets/johan-profil.jpeg';
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+// --- NAVBAR KOMPONENT ---
+const Navbar = () => {
+    const [theme, setTheme] = useState('carbonfate');
+    const [scrolled, setScrolled] = useState(false);
 
+    useEffect(() => {
+        // Ladda tema från localStorage
+        const savedTheme = localStorage.getItem('theme') || 'carbonfate';
+        setTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
+        // Scroll listener för navbar-effekt
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
+    const toggleTheme = () => {
+        const newTheme = theme === 'carbonfate' ? 'delta' : 'carbonfate';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+    };
 
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    return (
+        <nav className={`navbar fixed top-0 z-50 transition-all duration-300 ${
+            scrolled ? 'bg-base-100/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        }`}>
+            <div className="container mx-auto px-4">
+                <div className="flex-1">
+                    <button 
+                        onClick={() => scrollToSection('hero')}
+                        className="btn btn-ghost text-xl font-bold"
+                    >
+                        <span className="text-primary">JK</span>
+                    </button>
+                </div>
+                
+                <div className="flex-none">
+                    <ul className="menu menu-horizontal px-1 hidden md:flex">
+                        <li>
+                            <button onClick={() => scrollToSection('hero')}>
+                                Hem
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('skills')}>
+                                Färdigheter
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('timeline')}>
+                                Erfarenhet
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('news')}>
+                                Nyheter
+                            </button>
+                        </li>
+                        <li>
+                            <a href="/projekt" className="text-primary font-semibold">
+                                Projekt
+                            </a>
+                        </li>
+                    </ul>
+
+                    {/* Dark Mode Toggle */}
+                    <button 
+                        onClick={toggleTheme}
+                        className="btn btn-ghost btn-circle ml-2"
+                        aria-label="Växla tema"
+                    >
+                        {theme === 'carbonfate' ? (
+                            <FaMoon className="text-xl" />
+                        ) : (
+                            <FaSun className="text-xl" />
+                        )}
+                    </button>
+
+                    {/* Mobile Menu */}
+                    <div className="dropdown dropdown-end md:hidden ml-2">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><button onClick={() => scrollToSection('hero')}>Hem</button></li>
+                            <li><button onClick={() => scrollToSection('skills')}>Färdigheter</button></li>
+                            <li><button onClick={() => scrollToSection('timeline')}>Erfarenhet</button></li>
+                            <li><button onClick={() => scrollToSection('news')}>Nyheter</button></li>
+                            <li><a href="/projekt" className="text-primary font-semibold">Projekt</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+};
+
+// --- HERO SECTION ---
 const HeroSection = () => (
-    <section className="py-24 md:py-32 w-full flex-grow ">
+    <section id="hero" className="py-32 md:py-40 w-full flex-grow mt-16">
         <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-                <div className="avatar mb-6">
+            <motion.div 
+                className="max-w-3xl mx-auto text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                <motion.div 
+                    className="avatar mb-6"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
                     <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
                         <img src={profilBild} alt="Johan Karlsson Profilbild" />
                     </div>
-                </div>
+                </motion.div>
 
-                <span className="text-3xl font-bold mb-8 block">
+                <motion.span 
+                    className="text-3xl font-bold mb-8 block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                >
                     <span className="text-primary">Johan</span> Karlsson
-                </span>
+                </motion.span>
 
-                <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                <motion.h1 
+                    className="text-5xl md:text-6xl font-bold mb-8 leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                >
                     <span className="text-primary">Hej jag är</span> Utvecklare
-                </h1>
+                </motion.h1>
 
-                <p className="text-base-content/70 text-xl mb-12 max-w-2xl mx-auto">
+                <motion.p 
+                    className="text-base-content/70 text-xl mb-12 max-w-2xl mx-auto"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                >
                     Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från både fullstack-projekt och frontend-arbete med Flutter, och jag drivs av att skapa rena och funktionella lösningar.
-                </p>
+                </motion.p>
 
-                <div className="flex flex-wrap gap-4 justify-center">
+                <motion.div 
+                    className="flex flex-wrap gap-4 justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                >
                     <a
                         href="mailto:johanwilhelmkarlsson@gmail.com"
-                        target="_blank"
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaEnvelope className="text-xl" />
@@ -40,27 +177,28 @@ const HeroSection = () => (
                     <a
                         href="https://github.com/gurkvatten"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaGithub className="text-xl" />
                         GitHub
                     </a>
                     <a
-                        href="www.linkedin.com/in/johan-karlsson-871537223"
+                        href="https://www.linkedin.com/in/johan-karlsson-871537223"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaLinkedin className="text-xl" />
                         LinkedIn
                     </a>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     </section>
 );
 
-
-// --- 2. KOMPONENT: Färdigheter ---
+// --- SKILLS SECTION ---
 const SkillsSection = () => {
     const skills = [
         { name: "Swift", value: 80, color: "progress-primary" },
@@ -70,15 +208,28 @@ const SkillsSection = () => {
     ];
 
     return (
-        <section className="py-16 bg-base-200 w-full">
+        <section id="skills" className="py-16 bg-base-200 w-full">
             <div className="container mx-auto px-4 max-w-3xl">
-                <h2 className="text-4xl font-bold text-center mb-12">
+                <motion.h2 
+                    className="text-4xl font-bold text-center mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     Mina <span className="text-primary">Färdigheter</span>
-                </h2>
+                </motion.h2>
 
                 <div className="space-y-6">
                     {skills.map((skill, index) => (
-                        <div key={index} className="pt-4 first:pt-0">
+                        <motion.div 
+                            key={index} 
+                            className="pt-4 first:pt-0"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                        >
                             <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end">
                                 <span className="text-xl font-semibold mb-2 sm:mb-0">{skill.name}</span>
                                 <span className="font-bold text-lg text-accent">{skill.value}%</span>
@@ -88,7 +239,7 @@ const SkillsSection = () => {
                                 value={skill.value}
                                 max="100"
                             ></progress>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
@@ -96,17 +247,21 @@ const SkillsSection = () => {
     );
 };
 
-
-// --- 3. KOMPONENT: Tidslinje (Erfarenhet & Utbildning) ---
+// --- TIMELINE SECTION ---
 const TimelineSection = () => (
-    <section className="py-24 bg-base-100 w-full">
+    <section id="timeline" className="py-24 bg-base-100 w-full">
         <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-4xl font-bold text-center mb-16">
+            <motion.h2 
+                className="text-4xl font-bold text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
                 Erfarenhet & <span className="text-primary">Utbildning</span> 🧑‍💻
-            </h2>
+            </motion.h2>
 
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                {/* Post 1: Senaste Utbildning */}
                 <li>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-primary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
@@ -117,13 +272,10 @@ const TimelineSection = () => (
                         <h4 className="text-lg font-semibold">IT högskolan Javautvecklare</h4>
                         <p className="text-base-content/80 mt-1">Just nu pluggar jag Java.</p>
                     </div>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-primary" style={{ width: '8px' }}/>
                 </li>
 
-                {/* Post 2: Tidigare Jobb */}
                 <li>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-primary" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-secondary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
@@ -134,13 +286,10 @@ const TimelineSection = () => (
                         <h4 className="text-lg font-semibold">Eventstaden</h4>
                         <p className="text-base-content/80 mt-1">Jobbade med frontendkomponenter i Flutter.</p>
                     </div>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-secondary" style={{ width: '8px' }}/>
                 </li>
 
-                {/* Post 3: Utbildning */}
                 <li>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-secondary" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-accent"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
@@ -151,13 +300,10 @@ const TimelineSection = () => (
                         <h4 className="text-lg font-semibold">Folkuniversitetet Mobilapplikationsutvecklare</h4>
                         <p className="text-base-content/80 mt-1">Fokus på Swift, Kotlin och lite backend.</p>
                     </div>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-accent" style={{ width: '8px' }}/>
                 </li>
 
-                {/* Sista Post: Startpunkt */}
                 <li>
-                    {/* Ändring här: Lagt till style för höjd/tjocklek */}
                     <hr className="bg-accent" style={{ width: '8px' }}/>
                     <div className="timeline-middle">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
@@ -173,7 +319,7 @@ const TimelineSection = () => (
     </section>
 );
 
-// --- 4. KOMPONENT: Nyheter & Uppdateringar ---
+// --- NEWS SECTION ---
 const NewsSection = () => {
     const updates = [
         {
@@ -199,20 +345,26 @@ const NewsSection = () => {
     ];
 
     return (
-        <section className="py-24 bg-base-200 w-full">
+        <section id="news" className="py-24 bg-base-200 w-full">
             <div className="container mx-auto px-4 max-w-4xl">
-                <h2 className="text-4xl font-bold text-center mb-12">
+                <motion.h2 
+                    className="text-4xl font-bold text-center mb-12"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
                     Nyheter & <span className="text-primary">vad jag gör nu</span> 📝
-                </h2>
+                </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {updates.map((post, i) => (
                         <motion.div
                             key={i}
                             className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
-                            initial={{ opacity: 0.4, y: 0 }}
+                            initial={{ opacity: 0.4, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: i * 0.2 }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
                             viewport={{ once: true }}
                         >
                             <div className="card-body">
@@ -236,92 +388,61 @@ const NewsSection = () => {
     );
 };
 
-
-// --- 5. KOMPONENT: Projektkatalog ---
-const ProjectsSection = () => {
-    const projects = [
-        {
-            title: "iOS ToDo App",
-            badge: "Swift",
-            description: "En native ToDo-app för iOS utvecklad med Swift och SwiftUI, med fokus på Core Data-lagring.",
-            imageText: "Swift+iOS+App",
-            imageBg: "F8D76D",
-            imageTextCol: "333333",
-        },
-        {
-            title: "Väderprognos-app",
-            badge: "Kotlin",
-            description: "En Android-app byggd i Kotlin med Jetpack Compose för UI, som använder OpenWeather API.",
-            imageText: "Kotlin+Android+App",
-            imageBg: "00C49F",
-            imageTextCol: "ffffff",
-        },
-        {
-            title: "RESTful API Tjänst",
-            badge: "Java",
-            description: "En robust backend-tjänst skapad med Java och Spring Boot för att hantera användardata och autentisering.",
-            imageText: "Java+API",
-            imageBg: "FF8A8A",
-            imageTextCol: "ffffff",
-        },
-    ];
-
-    return (
-        <section className="py-24 bg-base-200 w-full">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-16">
-                    Utvalda <span className="text-primary">Projekt</span> 💼
-                </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    {projects.map((p, i) => (
-                        <div key={i} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
-                            <figure>
-                                <img
-                                    src={`https://placehold.co/400x250/${p.imageBg}/${p.imageTextCol}?text=${p.imageText}`}
-                                    alt={`${p.title} Projektbild`}
-                                    className="w-full h-auto"
-                                />
-                            </figure>
-                            <div className="card-body p-6">
-                                <h3 className="card-title text-2xl">
-                                    {p.title}
-                                    <div className={`badge badge-${i === 0 ? 'primary' : i === 1 ? 'secondary' : 'accent'}`}>{p.badge}</div>
-                                </h3>
-                                <p className="text-base-content/70">{p.description}</p>
-                                <div className="card-actions justify-end mt-4">
-                                    <a href="#" target="_blank" className="btn btn-sm btn-outline">Se Live</a>
-                                    <a href="#" target="_blank" className="btn btn-sm btn-primary">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-
-// --- 6. KOMPONENT: Sidfot ---
+// --- FOOTER ---
 const AppFooter = () => (
-    <footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto border-t border-base-300">
+    <footer className="footer footer-center p-10 bg-base-100 text-base-content mt-auto border-t border-base-300">
         <aside>
-            <p>© 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.</p>
+            <p className="font-bold text-lg">
+                <span className="text-primary">Johan</span> Karlsson
+            </p>
+            <p className="text-base-content/70">Utvecklare & Designer</p>
+        </aside>
+        <nav>
+            <div className="grid grid-flow-col gap-4">
+                <a 
+                    href="https://github.com/gurkvatten"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-ghost btn-circle"
+                    aria-label="GitHub"
+                >
+                    <FaGithub className="text-2xl" />
+                </a>
+                <a 
+                    href="https://www.linkedin.com/in/johan-karlsson-871537223"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-ghost btn-circle"
+                    aria-label="LinkedIn"
+                >
+                    <FaLinkedin className="text-2xl" />
+                </a>
+                <a 
+                    href="mailto:johanwilhelmkarlsson@gmail.com"
+                    className="btn btn-ghost btn-circle"
+                    aria-label="Email"
+                >
+                    <FaEnvelope className="text-2xl" />
+                </a>
+            </div>
+        </nav>
+        <aside>
+            <p className="text-sm text-base-content/60">
+                © 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.
+            </p>
         </aside>
     </footer>
 );
 
-
-// --- HUVUDKOMPONENT: App (Sätter ihop alla delar) ---
+// --- MAIN APP ---
 const App = () => {
     return (
         <div className="min-h-screen bg-base-100 flex flex-col">
+            <Navbar />
             <HeroSection />
             <SkillsSection />
             <TimelineSection />
             <NewsSection />
-            <ProjectsSection />
             <AppFooter />
         </div>
     );
