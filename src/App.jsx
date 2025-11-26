@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import profilBild from './assets/johan-profil.jpeg';
-import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaCode } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 // --- NAVBAR KOMPONENT ---
 const Navbar = () => {
     const [theme, setTheme] = useState('carbonfate');
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         // Ladda tema från localStorage
@@ -22,6 +23,17 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Stäng mobil-menyn när man scrollar
+    useEffect(() => {
+        const handleScroll = () => {
+            if (mobileMenuOpen) {
+                setMobileMenuOpen(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [mobileMenuOpen]);
+
     const toggleTheme = () => {
         const newTheme = theme === 'carbonfate' ? 'delta' : 'carbonfate';
         setTheme(newTheme);
@@ -30,86 +42,186 @@ const Navbar = () => {
     };
 
     const scrollToSection = (sectionId) => {
+        setMobileMenuOpen(false); // Stäng mobil-menyn
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const offset = 80; // Höjd på navbar
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
 
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+    };
+
     return (
-        <nav className={`navbar fixed top-0 z-50 transition-all duration-300 ${
-            scrolled ? 'bg-base-100/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-        }`}>
-            <div className="container mx-auto px-4">
-                <div className="flex-1">
-                    <button 
-                        onClick={() => scrollToSection('hero')}
-                        className="btn btn-ghost text-xl font-bold"
-                    >
-                        <span className="text-primary">JK</span>
-                    </button>
-                </div>
-                
-                <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1 hidden md:flex">
-                        <li>
-                            <button onClick={() => scrollToSection('hero')}>
-                                Hem
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => scrollToSection('skills')}>
-                                Färdigheter
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => scrollToSection('timeline')}>
-                                Erfarenhet
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => scrollToSection('news')}>
-                                Nyheter
-                            </button>
-                        </li>
-                        <li>
-                            <a href="/projekt" className="text-primary font-semibold">
-                                Projekt
-                            </a>
-                        </li>
-                    </ul>
-
-                    {/* Dark Mode Toggle */}
-                    <button 
-                        onClick={toggleTheme}
-                        className="btn btn-ghost btn-circle ml-2"
-                        aria-label="Växla tema"
-                    >
-                        {theme === 'carbonfate' ? (
-                            <FaMoon className="text-xl" />
-                        ) : (
-                            <FaSun className="text-xl" />
-                        )}
-                    </button>
-
-                    {/* Mobile Menu */}
-                    <div className="dropdown dropdown-end md:hidden ml-2">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><button onClick={() => scrollToSection('hero')}>Hem</button></li>
-                            <li><button onClick={() => scrollToSection('skills')}>Färdigheter</button></li>
-                            <li><button onClick={() => scrollToSection('timeline')}>Erfarenhet</button></li>
-                            <li><button onClick={() => scrollToSection('news')}>Nyheter</button></li>
-                            <li><a href="/projekt" className="text-primary font-semibold">Projekt</a></li>
+        <>
+            <nav className={`navbar fixed top-0 z-50 transition-all duration-300 ${
+                scrolled ? 'bg-base-100/95 backdrop-blur-md shadow-lg' : 'bg-base-100/80 backdrop-blur-sm'
+            }`}>
+                <div className="container mx-auto px-4">
+                    <div className="flex-1">
+                        <button 
+                            onClick={() => scrollToSection('hero')}
+                            className="btn btn-ghost text-xl font-bold"
+                        >
+                            <span className="text-primary">JK</span>
+                        </button>
+                    </div>
+                    
+                    <div className="flex-none">
+                        {/* Desktop Menu */}
+                        <ul className="menu menu-horizontal px-1 hidden md:flex">
+                            <li>
+                                <button onClick={() => scrollToSection('hero')}>
+                                    Hem
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('skills')}>
+                                    Färdigheter
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('timeline')}>
+                                    Erfarenhet
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('news')}>
+                                    Nyheter
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('projekt')} className="text-primary font-semibold">
+                                    Projekt
+                                </button>
+                            </li>
                         </ul>
+
+                        {/* Dark Mode Toggle */}
+                        <button 
+                            onClick={toggleTheme}
+                            className="btn btn-ghost btn-circle ml-2"
+                            aria-label="Växla tema"
+                        >
+                            {theme === 'carbonfate' ? (
+                                <FaMoon className="text-xl" />
+                            ) : (
+                                <FaSun className="text-xl" />
+                            )}
+                        </button>
+
+                        {/* Mobile Menu Button */}
+                        <button 
+                            onClick={toggleMobileMenu}
+                            className="btn btn-ghost btn-circle ml-2 md:hidden"
+                            aria-label="Öppna meny"
+                        >
+                            {mobileMenuOpen ? (
+                                <FaTimes className="text-xl" />
+                            ) : (
+                                <FaBars className="text-xl" />
+                            )}
+                        </button>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 bg-base-100 z-40 md:hidden pt-20"
+                    >
+                        <div className="container mx-auto px-4 py-8">
+                            <ul className="menu menu-lg w-full">
+                                <li>
+                                    <button 
+                                        onClick={() => scrollToSection('hero')}
+                                        className="text-lg py-4"
+                                    >
+                                        Hem
+                                    </button>
+                                </li>
+                                <li>
+                                    <button 
+                                        onClick={() => scrollToSection('skills')}
+                                        className="text-lg py-4"
+                                    >
+                                        Färdigheter
+                                    </button>
+                                </li>
+                                <li>
+                                    <button 
+                                        onClick={() => scrollToSection('timeline')}
+                                        className="text-lg py-4"
+                                    >
+                                        Erfarenhet
+                                    </button>
+                                </li>
+                                <li>
+                                    <button 
+                                        onClick={() => scrollToSection('news')}
+                                        className="text-lg py-4"
+                                    >
+                                        Nyheter
+                                    </button>
+                                </li>
+                                <li>
+                                    <button 
+                                        onClick={() => scrollToSection('projekt')}
+                                        className="text-primary font-semibold text-lg py-4"
+                                    >
+                                        Projekt
+                                    </button>
+                                </li>
+                            </ul>
+
+                            {/* Social Links in Mobile Menu */}
+                            <div className="divider"></div>
+                            <div className="flex justify-center gap-4 mt-8">
+                                <a
+                                    href="mailto:johanwilhelmkarlsson@gmail.com"
+                                    className="btn btn-circle btn-outline btn-lg"
+                                    aria-label="Email"
+                                >
+                                    <FaEnvelope className="text-xl" />
+                                </a>
+                                <a
+                                    href="https://github.com/gurkvatten"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-circle btn-outline btn-lg"
+                                    aria-label="GitHub"
+                                >
+                                    <FaGithub className="text-xl" />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/johan-karlsson-871537223"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-circle btn-outline btn-lg"
+                                    aria-label="LinkedIn"
+                                >
+                                    <FaLinkedin className="text-xl" />
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 };
 
@@ -388,6 +500,250 @@ const NewsSection = () => {
     );
 };
 
+// --- PROJEKT SECTION ---
+const ProjektSection = () => {
+    const features = [
+        {
+            icon: <FaCar className="text-4xl" />,
+            title: "Realistisk Racing Simulation",
+            description: "60 FPS animationer med smooth interpolation och realistiska omkörningsmekaniker. Varje race känns levande och dynamisk."
+        },
+        {
+            icon: <FaTrophy className="text-4xl" />,
+            title: "Kvalificering & Strategi",
+            description: "Omfattande kvalificeringssystem som påverkar startgriden. Strategiska beslut om däck, bränsle och pit-stops avgör racen."
+        },
+        {
+            icon: <FaChartLine className="text-4xl" />,
+            title: "Team Management",
+            description: "Hantera ditt team, anställ förare, och utveckla din bil med strategiska uppgraderingar. Varje beslut har konsekvenser."
+        },
+        {
+            icon: <FaGamepad className="text-4xl" />,
+            title: "Upgrade System",
+            description: "Randomiserade upgrade-effekter skapar strategisk osäkerhet. Du vet inte exakt vad du får förrän efter köp - precis som i verkligheten!"
+        }
+    ];
+
+    const techStack = [
+        { name: "SwiftUI", color: "badge-primary" },
+        { name: "Swift", color: "badge-secondary" },
+        { name: "iOS Development", color: "badge-accent" },
+        { name: "Game Design", color: "badge-info" },
+    ];
+
+    const screenshots = [
+        {
+            title: "Race View",
+            description: "Huvudvyn under race med realtidsuppdateringar",
+            placeholder: "F1+Race+View"
+        },
+        {
+            title: "Team Management",
+            description: "Hantera ditt team och uppgraderingar",
+            placeholder: "Team+Manager"
+        },
+        {
+            title: "Qualifying",
+            description: "Kvalificeringssystem med varvtider",
+            placeholder: "Qualifying+System"
+        }
+    ];
+
+    return (
+        <section id="projekt" className="py-24 bg-base-100 w-full">
+            <div className="container mx-auto px-4 max-w-6xl">
+                {/* Hero */}
+                <motion.div
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                        <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
+                            <FaCar className="text-3xl text-primary" />
+                        </div>
+                    </div>
+                    <h2 className="text-5xl md:text-6xl font-bold mb-4">
+                        <span className="text-primary">Garagiste</span> F1 Manager
+                    </h2>
+                    <p className="text-xl text-base-content/70 mb-6 max-w-3xl mx-auto">
+                        Ett omfattande racing management-spel för iOS, byggt med SwiftUI. 
+                        Hantera ditt eget F1-team, utveckla din bil, och kämpa dig till toppen av förarmästerskapet.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 justify-center mb-8">
+                        {techStack.map((tech, i) => (
+                            <span key={i} className={`badge ${tech.color} badge-lg`}>
+                                {tech.name}
+                            </span>
+                        ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <a
+                            href="https://github.com/gurkvatten"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary btn-lg gap-2"
+                        >
+                            <FaGithub /> Se på GitHub
+                        </a>
+                        <button className="btn btn-outline btn-lg">
+                            🚧 Under utveckling
+                        </button>
+                    </div>
+                </motion.div>
+
+                {/* Features */}
+                <motion.div
+                    className="mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h3 className="text-3xl font-bold text-center mb-12">
+                        Huvudfunktioner
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {features.map((feature, i) => (
+                            <motion.div
+                                key={i}
+                                className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className="card-body">
+                                    <div className="text-primary mb-4">
+                                        {feature.icon}
+                                    </div>
+                                    <h4 className="card-title text-xl mb-2">
+                                        {feature.title}
+                                    </h4>
+                                    <p className="text-base-content/70">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Screenshots */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h3 className="text-3xl font-bold text-center mb-12">
+                        Screenshots
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {screenshots.map((shot, i) => (
+                            <motion.div
+                                key={i}
+                                className="card bg-base-200 shadow-xl"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <figure className="px-4 pt-4">
+                                    <div className="rounded-xl overflow-hidden bg-base-300 aspect-[9/16]">
+                                        <img
+                                            src={`https://placehold.co/400x700/2b2b2b/ffffff?text=${shot.placeholder}`}
+                                            alt={shot.title}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </figure>
+                                <div className="card-body">
+                                    <h4 className="card-title text-primary">{shot.title}</h4>
+                                    <p className="text-sm text-base-content/70">{shot.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
+
+                {/* Technical Details */}
+                <motion.div
+                    className="mt-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h3 className="text-3xl font-bold text-center mb-12">
+                        Tekniska <span className="text-primary">Detaljer</span>
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <div className="card bg-base-200">
+                            <div className="card-body">
+                                <h4 className="card-title text-primary">
+                                    <FaCode /> Arkitektur
+                                </h4>
+                                <ul className="list-disc list-inside space-y-2 text-base-content/80 text-sm">
+                                    <li>Season struct med teams och races</li>
+                                    <li>GameManager class för spellogik</li>
+                                    <li>LiveRaceSimulator för race-execution</li>
+                                    <li>60 FPS rendering med smooth interpolation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="card bg-base-200">
+                            <div className="card-body">
+                                <h4 className="card-title text-primary">
+                                    <FaChartLine /> Gameplay
+                                </h4>
+                                <ul className="list-disc list-inside space-y-2 text-base-content/80 text-sm">
+                                    <li>Kvalificeringssystem före varje race</li>
+                                    <li>Performance-baserad race income</li>
+                                    <li>Randomiserade upgrade-effekter</li>
+                                    <li>Realistiska omkörningsmekaniker</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* Status */}
+                <motion.div
+                    className="text-center mt-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="stats stats-vertical lg:stats-horizontal shadow-xl bg-base-200">
+                        <div className="stat">
+                            <div className="stat-title">Status</div>
+                            <div className="stat-value text-primary text-2xl">Aktiv</div>
+                            <div className="stat-desc">Under utveckling sedan Aug 2025</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-title">Plattform</div>
+                            <div className="stat-value text-secondary text-2xl">iOS</div>
+                            <div className="stat-desc">Native SwiftUI app</div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-title">Version</div>
+                            <div className="stat-value text-accent text-2xl">Beta</div>
+                            <div className="stat-desc">Tidig utvecklingsfas</div>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
 // --- FOOTER ---
 const AppFooter = () => (
     <footer className="footer footer-center p-10 bg-base-100 text-base-content mt-auto border-t border-base-300">
@@ -443,6 +799,7 @@ const App = () => {
             <SkillsSection />
             <TimelineSection />
             <NewsSection />
+            <ProjektSection />
             <AppFooter />
         </div>
     );
