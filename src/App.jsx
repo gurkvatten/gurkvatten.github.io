@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import profilBild from './assets/johan-profil.jpeg';
-import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaCode } from "react-icons/fa";
+// Lägg till FaApple i din import
+import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaApple } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 // --- NAVBAR KOMPONENT ---
@@ -502,58 +503,60 @@ const NewsSection = () => {
 
 // --- PROJEKT SECTION ---
 const ProjektSection = () => {
+    // Fokus på spelmekanik snarare än teknisk implementation
     const features = [
         {
             icon: <FaCar className="text-4xl" />,
-            title: "Realistisk Racing Simulation",
-            description: "60 FPS animationer med smooth interpolation och realistiska omkörningsmekaniker. Varje race känns levande och dynamisk."
-        },
-        {
-            icon: <FaTrophy className="text-4xl" />,
-            title: "Kvalificering & Strategi",
-            description: "Omfattande kvalificeringssystem som påverkar startgriden. Strategiska beslut om däck, bränsle och pit-stops avgör racen."
+            title: "Intensiva Race",
+            description: "Följ loppen varv för varv. Dina förare reagerar på omgivningen, gör vågade omkörningar och kämpar om varje position."
         },
         {
             icon: <FaChartLine className="text-4xl" />,
-            title: "Team Management",
-            description: "Hantera ditt team, anställ förare, och utveckla din bil med strategiska uppgraderingar. Varje beslut har konsekvenser."
+            title: "Strategiska Beslut",
+            description: "När börjar däcken ta slut? Är det dags för en undercut? Dina beslut från depån avgör om det blir vinst eller förlust."
+        },
+        {
+            icon: <FaTrophy className="text-4xl" />,
+            title: "Bygg ditt arv",
+            description: "Starta från botten och arbeta dig uppåt. Investera prispengar i bilen, anställ bättre förare och ta ditt stall till mästerskapstiteln."
         },
         {
             icon: <FaGamepad className="text-4xl" />,
-            title: "Upgrade System",
-            description: "Randomiserade upgrade-effekter skapar strategisk osäkerhet. Du vet inte exakt vad du får förrän efter köp - precis som i verkligheten!"
+            title: "Oförutsägbart",
+            description: "Precis som i verkligheten kan allt hända. Väderomslag, krascher och Safety Cars kan vända upp och ner på strategin."
         }
     ];
 
-    const techStack = [
-        { name: "SwiftUI", color: "badge-primary" },
-        { name: "Swift", color: "badge-secondary" },
-        { name: "iOS Development", color: "badge-accent" },
-        { name: "Game Design", color: "badge-info" },
+    // Mer genrerelaterade taggar
+    const tags = [
+        { name: "Manager Game", color: "badge-primary" },
+        { name: "Strategy", color: "badge-secondary" },
+        { name: "Racing", color: "badge-accent" },
+        { name: "iOS Native", color: "badge-ghost" },
     ];
 
     const screenshots = [
         {
-            title: "Race View",
-            description: "Huvudvyn under race med realtidsuppdateringar",
-            placeholder: "F1+Race+View"
+            title: "Race Day",
+            description: "Följ spänningen i realtid från depån",
+            placeholder: "Live+Race"
         },
         {
-            title: "Team Management",
-            description: "Hantera ditt team och uppgraderingar",
-            placeholder: "Team+Manager"
+            title: "Högkvarteret",
+            description: "Utveckla bilen och hantera budgeten",
+            placeholder: "HQ+View"
         },
         {
-            title: "Qualifying",
-            description: "Kvalificeringssystem med varvtider",
-            placeholder: "Qualifying+System"
+            title: "Förarmarknad",
+            description: "Scouta och kontraktera nästa stjärna",
+            placeholder: "Driver+Market"
         }
     ];
 
     return (
         <section id="projekt" className="py-24 bg-base-100 w-full">
             <div className="container mx-auto px-4 max-w-6xl">
-                {/* Hero */}
+                {/* Hero för Projektet */}
                 <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
@@ -561,182 +564,146 @@ const ProjektSection = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <div className="flex items-center justify-center gap-4 mb-4">
-                        <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center">
-                            <FaCar className="text-3xl text-primary" />
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+                            <FaCar className="text-4xl text-white" />
                         </div>
                     </div>
-                    <h2 className="text-5xl md:text-6xl font-bold mb-4">
-                        <span className="text-primary">Garagiste</span> F1 Manager
+
+                    <h2 className="text-5xl md:text-6xl font-bold mb-6">
+                        Garagiste <span className="text-primary">F1 Manager</span>
                     </h2>
-                    <p className="text-xl text-base-content/70 mb-6 max-w-3xl mx-auto">
-                        Ett omfattande racing management-spel för iOS, byggt med SwiftUI. 
-                        Hantera ditt eget F1-team, utveckla din bil, och kämpa dig till toppen av förarmästerskapet.
+
+                    <p className="text-xl text-base-content/70 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        Har du vad som krävs för att leda ett stall till toppen?
+                        Ta rollen som Team Principal i detta strategiska managerspel.
+                        Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.
                     </p>
 
-                    <div className="flex flex-wrap gap-2 justify-center mb-8">
-                        {techStack.map((tech, i) => (
-                            <span key={i} className={`badge ${tech.color} badge-lg`}>
-                                {tech.name}
+                    <div className="flex flex-wrap gap-2 justify-center mb-10">
+                        {tags.map((tag, i) => (
+                            <span key={i} className={`badge ${tag.color} badge-lg`}>
+                                {tag.name}
                             </span>
                         ))}
                     </div>
 
                     <div className="flex flex-wrap gap-4 justify-center">
+                        {/* TestFlight Knapp */}
                         <a
-                            href="https://github.com/gurkvatten"
+                            href="#" // <--- LÄGG IN DIN TESTFLIGHT LÄNK HÄR
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-primary btn-lg gap-2"
+                            className="btn btn-primary btn-lg gap-3 shadow-lg hover:scale-105 transition-transform"
                         >
-                            <FaGithub /> Se på GitHub
+                            <FaApple className="text-2xl" />
+                            Gå med i TestFlight
                         </a>
-                        <button className="btn btn-outline btn-lg">
-                            🚧 Under utveckling
-                        </button>
+                        <div className="tooltip" data-tip="Spelet är i aktiv beta-fas">
+                            <button className="btn btn-outline btn-lg cursor-default">
+                                🚧 Beta v0.8
+                            </button>
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* Features */}
+                {/* Features Grid */}
                 <motion.div
-                    className="mb-16"
+                    className="mb-20"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-3xl font-bold text-center mb-12">
-                        Huvudfunktioner
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {features.map((feature, i) => (
                             <motion.div
                                 key={i}
-                                className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all duration-300"
+                                className="card bg-base-200 border border-base-300 hover:border-primary/50 transition-all duration-300"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <div className="card-body">
-                                    <div className="text-primary mb-4">
+                                <div className="card-body flex-row gap-6 items-start">
+                                    <div className="text-primary mt-1">
                                         {feature.icon}
                                     </div>
-                                    <h4 className="card-title text-xl mb-2">
-                                        {feature.title}
-                                    </h4>
-                                    <p className="text-base-content/70">
-                                        {feature.description}
-                                    </p>
+                                    <div>
+                                        <h4 className="card-title text-xl mb-2">
+                                            {feature.title}
+                                        </h4>
+                                        <p className="text-base-content/70 leading-relaxed">
+                                            {feature.description}
+                                        </p>
+                                    </div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* Screenshots */}
+                {/* Screenshots & Visuals */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
                     <h3 className="text-3xl font-bold text-center mb-12">
-                        Screenshots
+                        En titt in i <span className="text-primary">depån</span>
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {screenshots.map((shot, i) => (
                             <motion.div
                                 key={i}
-                                className="card bg-base-200 shadow-xl"
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                className="group"
+                                initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <figure className="px-4 pt-4">
-                                    <div className="rounded-xl overflow-hidden bg-base-300 aspect-[9/16]">
-                                        <img
-                                            src={`https://placehold.co/400x700/2b2b2b/ffffff?text=${shot.placeholder}`}
-                                            alt={shot.title}
-                                            className="w-full h-full object-cover"
-                                        />
+                                <div className="mockup-phone border-primary">
+                                    <div className="camera"></div>
+                                    <div className="display">
+                                        <div className="artboard artboard-demo phone-1 bg-base-300 relative overflow-hidden">
+                                            <img
+                                                src={`https://placehold.co/320x568/2b2b2b/ffffff?text=${shot.placeholder}`}
+                                                alt={shot.title}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            />
+                                            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                                                <p className="text-white font-bold text-center">{shot.title}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </figure>
-                                <div className="card-body">
-                                    <h4 className="card-title text-primary">{shot.title}</h4>
-                                    <p className="text-sm text-base-content/70">{shot.description}</p>
                                 </div>
+                                <p className="text-center mt-6 text-base-content/60 text-sm font-medium">
+                                    {shot.description}
+                                </p>
                             </motion.div>
                         ))}
                     </div>
                 </motion.div>
 
-                {/* Technical Details */}
+                {/* "Varför spela" - Istället för tekniska detaljer */}
                 <motion.div
-                    className="mt-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="mt-24 text-center max-w-2xl mx-auto"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-3xl font-bold text-center mb-12">
-                        Tekniska <span className="text-primary">Detaljer</span>
-                    </h3>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <div className="card bg-base-200">
-                            <div className="card-body">
-                                <h4 className="card-title text-primary">
-                                    <FaCode /> Arkitektur
-                                </h4>
-                                <ul className="list-disc list-inside space-y-2 text-base-content/80 text-sm">
-                                    <li>Season struct med teams och races</li>
-                                    <li>GameManager class för spellogik</li>
-                                    <li>LiveRaceSimulator för race-execution</li>
-                                    <li>60 FPS rendering med smooth interpolation</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="card bg-base-200">
-                            <div className="card-body">
-                                <h4 className="card-title text-primary">
-                                    <FaChartLine /> Gameplay
-                                </h4>
-                                <ul className="list-disc list-inside space-y-2 text-base-content/80 text-sm">
-                                    <li>Kvalificeringssystem före varje race</li>
-                                    <li>Performance-baserad race income</li>
-                                    <li>Randomiserade upgrade-effekter</li>
-                                    <li>Realistiska omkörningsmekaniker</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Status */}
-                <motion.div
-                    className="text-center mt-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="stats stats-vertical lg:stats-horizontal shadow-xl bg-base-200">
-                        <div className="stat">
-                            <div className="stat-title">Status</div>
-                            <div className="stat-value text-primary text-2xl">Aktiv</div>
-                            <div className="stat-desc">Under utveckling sedan Aug 2025</div>
-                        </div>
-                        <div className="stat">
-                            <div className="stat-title">Plattform</div>
-                            <div className="stat-value text-secondary text-2xl">iOS</div>
-                            <div className="stat-desc">Native SwiftUI app</div>
-                        </div>
-                        <div className="stat">
-                            <div className="stat-title">Version</div>
-                            <div className="stat-value text-accent text-2xl">Beta</div>
-                            <div className="stat-desc">Tidig utvecklingsfas</div>
-                        </div>
+                    <div className="bg-base-200 p-8 rounded-3xl shadow-inner">
+                        <h4 className="text-2xl font-bold mb-4">Redo att testa?</h4>
+                        <p className="text-base-content/70 mb-6">
+                            Jag söker just nu testpiloter som vill vara med och forma spelets framtid.
+                            Ladda ner beta-versionen via TestFlight och ge din feedback direkt i appen.
+                        </p>
+                        <a
+                            href="#" // <--- SAMMA TESTFLIGHT LÄNK HÄR
+                            className="link link-primary font-bold text-lg hover:text-primary-focus"
+                        >
+                            Gå till TestFlight inbjudan &rarr;
+                        </a>
                     </div>
                 </motion.div>
             </div>
