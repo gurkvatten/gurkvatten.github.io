@@ -5,6 +5,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar
 import { motion, AnimatePresence } from "framer-motion";
 
 // --- NAVBAR KOMPONENT ---
+//Test
 const Navbar = () => {
     const [theme, setTheme] = useState('carbonfate');
     const [scrolled, setScrolled] = useState(false);
