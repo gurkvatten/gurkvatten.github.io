@@ -602,7 +602,7 @@ const ProjektSection = () => {
                         </a>
                         <div className="tooltip" data-tip="Spelet är i aktiv beta-fas">
                             <button className="btn btn-outline btn-lg cursor-default">
-                                🚧 Beta v0.8
+                                🚧 Beta v1.0
                             </button>
                         </div>
                     </div>
