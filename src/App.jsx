@@ -592,7 +592,7 @@ const ProjektSection = () => {
                     <div className="flex flex-wrap gap-4 justify-center">
                         {/* TestFlight Knapp */}
                         <a
-                            href="#" // <--- LÄGG IN DIN TESTFLIGHT LÄNK HÄR
+                            href="https://testflight.apple.com/join/b9X5jhaj" // <--- LÄGG IN DIN TESTFLIGHT LÄNK HÄR
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary btn-lg gap-3 shadow-lg hover:scale-105 transition-transform"
