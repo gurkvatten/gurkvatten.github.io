@@ -592,7 +592,7 @@ const ProjektSection = () => {
                     <div className="flex flex-wrap gap-4 justify-center">
                         {/* TestFlight Knapp */}
                         <a
-                            href="https://testflight.apple.com/join/b9X5jhaj" // <--- LÄGG IN DIN TESTFLIGHT LÄNK HÄR
+                            href="https://testflight.apple.com/join/b9X5jhaj"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary btn-lg gap-3 shadow-lg hover:scale-105 transition-transform"
@@ -700,7 +700,7 @@ const ProjektSection = () => {
                             Ladda ner beta-versionen via TestFlight och ge din feedback direkt i appen.
                         </p>
                         <a
-                            href="#" // <--- SAMMA TESTFLIGHT LÄNK HÄR
+                            href="https://testflight.apple.com/join/b9X5jhaj"
                             className="link link-primary font-bold text-lg hover:text-primary-focus"
                         >
                             Gå till TestFlight inbjudan &rarr;
