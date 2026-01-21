@@ -78,39 +78,51 @@ const Navbar = () => {
                     </div>
                     
                     <div className="flex-none">
-                        {/* Desktop Menu */}
-                        <ul className="menu menu-horizontal px-1 hidden md:flex">
-                            <li>
-                                <button onClick={() => scrollToSection('hero')}>
-                                    Hem
-                                </button>
-                            </li>
-                            <li>
-                                <button onClick={() => scrollToSection('skills')}>
-                                    Färdigheter
-                                </button>
-                            </li>
-                            <li>
-                                <button onClick={() => scrollToSection('timeline')}>
-                                    Erfarenhet
-                                </button>
-                            </li>
-                            <li>
-                                <button onClick={() => scrollToSection('news')}>
-                                    Nyheter
-                                </button>
-                            </li>
-                            <li>
-                                <button onClick={() => scrollToSection('projekt')} className="text-primary font-semibold">
-                                    Projekt
-                                </button>
-                            </li>
-                        </ul>
+                        <div className="hidden md:flex items-center gap-3">
+                            <ul className="menu menu-horizontal px-1">
+                                <li>
+                                    <button onClick={() => scrollToSection('hero')}>
+                                        Hem
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollToSection('skills')}>
+                                        Färdigheter
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollToSection('timeline')}>
+                                        Erfarenhet
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollToSection('news')}>
+                                        Nyheter
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => scrollToSection('projekt')} className="text-primary font-semibold">
+                                        Projekt
+                                    </button>
+                                </li>
+                            </ul>
+                            <button 
+                                onClick={toggleTheme}
+                                className="btn btn-ghost btn-circle"
+                                aria-label="Växla tema"
+                            >
+                                {theme === 'carbonfate' ? (
+                                    <FaMoon className="text-xl" />
+                                ) : (
+                                    <FaSun className="text-xl" />
+                                )}
+                            </button>
+                        </div>
 
-                        {/* Dark Mode Toggle */}
+                        {/* Dark Mode Toggle for small screens */}
                         <button 
                             onClick={toggleTheme}
-                            className="btn btn-ghost btn-circle ml-2"
+                            className="btn btn-ghost btn-circle md:hidden"
                             aria-label="Växla tema"
                         >
                             {theme === 'carbonfate' ? (
@@ -761,7 +773,7 @@ const AppFooter = () => (
 // --- MAIN APP ---
 const App = () => {
     return (
-        <div className="min-h-screen bg-base-100 flex flex-col">
+        <div className="min-h-screen bg-transparent flex flex-col">
             <Navbar />
             <HeroSection />
             <SkillsSection />
