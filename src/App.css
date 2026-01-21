@@ -94,6 +94,12 @@
     --hero-aurora-right: rgba(14, 165, 233, 0.35);
     --surface-frost: rgba(255, 255, 255, 0.08);
     --card-glow: rgba(255, 255, 255, 0.15);
+
+    --gradient-layer-warm: color-mix(in srgb, var(--color-secondary) 65%, rgba(255, 255, 255, 0.45));
+    --gradient-layer-cool: color-mix(in srgb, var(--color-primary) 45%, rgba(255, 255, 255, 0.3));
+    --gradient-layer-aqua: color-mix(in srgb, var(--color-info) 35%, rgba(255, 255, 255, 0.25));
+    --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--color-base-100) 85%, rgba(255, 255, 255, 0.9)), color-mix(in srgb, var(--color-base-200) 60%, rgba(255, 255, 255, 0.65)));
+    --gradient-overlay: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3), transparent 45%);
 }
 
 html {
@@ -112,10 +118,10 @@ body {
     font-family: "Inter", "Inter var", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     position: relative;
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(255, 184, 108, 0.35), transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(192, 132, 252, 0.32), transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.25), transparent 40%),
-        linear-gradient(180deg, rgba(255, 247, 237, 1), rgba(234, 240, 255, 0.9));
+        radial-gradient(circle at 10% 20%, var(--gradient-layer-warm), transparent 55%),
+        radial-gradient(circle at 80% 10%, var(--gradient-layer-cool), transparent 45%),
+        radial-gradient(circle at 50% 80%, var(--gradient-layer-aqua), transparent 40%),
+        var(--gradient-linear-base);
     background-attachment: fixed;
     background-color: var(--color-base-100);
     color: var(--color-base-content);
@@ -127,24 +133,21 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3), transparent 45%);
+    background: var(--gradient-overlay);
     mix-blend-mode: screen;
     opacity: 0.4;
     z-index: -1;
 }
 
-:root[data-theme="delta"] body {
-    background-image:
-        radial-gradient(circle at 15% 35%, rgba(79, 70, 229, 0.25), transparent 45%),
-        radial-gradient(circle at 85% 15%, rgba(14, 165, 233, 0.18), transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.2), transparent 40%),
-        linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.9));
-    background-color: #020617;
-    color: oklch(92% 0.01 200); /* lighten text for readability */
+:root[data-theme="delta"] {
+    --gradient-layer-warm: color-mix(in srgb, var(--color-secondary) 60%, rgba(15, 23, 42, 0.8));
+    --gradient-layer-cool: color-mix(in srgb, var(--color-primary) 45%, rgba(2, 6, 23, 0.7));
+    --gradient-layer-aqua: color-mix(in srgb, var(--color-info) 50%, rgba(15, 23, 42, 0.6));
+    --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--color-base-100) 85%, rgba(15, 23, 42, 0.95)), color-mix(in srgb, var(--color-base-200) 55%, rgba(2, 6, 23, 0.8)));
+    --gradient-overlay: radial-gradient(circle at 30% -10%, color-mix(in srgb, var(--color-primary) 65%, rgba(15, 23, 42, 0.65)), transparent 45%);
 }
 
-:root[data-theme="delta"] body::before {
-    background: radial-gradient(circle at 30% -10%, rgba(79, 70, 229, 0.35), transparent 45%);
-    opacity: 0.35;
-    mix-blend-mode: screen;
+.word-cloud {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    justify-items: center;
 }

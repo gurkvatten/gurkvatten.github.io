@@ -326,16 +326,22 @@ const HeroSection = () => (
 
 // --- SKILLS SECTION ---
 const SkillsSection = () => {
-    const skills = [
-        { name: "Swift", value: 80, color: "progress-primary" },
-        { name: "Java", value: 80, color: "progress-secondary" },
-        { name: "Kotlin", value: 70, color: "progress-accent" },
-        { name: "Backend (t.ex. Node.js/Python)", value: 65, color: "progress-warning" },
+    const wordCloud = [
+        { name: "Swift", size: 2.1, color: "var(--color-secondary)" },
+        { name: "Java", size: 2.0, color: "var(--color-secondary)" },
+        { name: "Kotlin", size: 1.9, color: "var(--color-secondary)" },
+        { name: "React", size: 1.6, color: "var(--color-secondary)" },
+        { name: "Tailwind CSS", size: 1.5, color: "var(--color-secondary)" },
+        { name: "Node.js", size: 1.4, color: "var(--color-secondary)" },
+        { name: "Flutter", size: 1.3, color: "var(--color-secondary)" },
+        { name: "CI/CD", size: 1.1, color: "var(--color-secondary)" },
+        { name: "SQL", size: 1.2, color: "var(--color-secondary)" },
+        { name: "Docker", size: 1.05, color: "var(--color-secondary)" },
     ];
 
     return (
         <section id="skills" className="py-16 bg-base-200 w-full">
-            <div className="container mx-auto px-4 max-w-3xl">
+            <div className="container mx-auto px-4">
                 <motion.h2 
                     className="text-4xl font-bold text-center mb-12"
                     initial={{ opacity: 0, y: 20 }}
@@ -346,28 +352,29 @@ const SkillsSection = () => {
                     Mina <span className="text-primary">Färdigheter</span>
                 </motion.h2>
 
-                <div className="space-y-6">
-                    {skills.map((skill, index) => (
-                        <motion.div 
-                            key={index} 
-                            className="pt-4 first:pt-0"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                <motion.div
+                    className="word-cloud mx-auto grid max-w-4xl gap-4 lg:gap-6 justify-center"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                >
+                    {wordCloud.map((skill, index) => (
+                        <motion.span
+                            key={index}
+                            className="inline-flex items-center justify-center font-semibold transition-transform duration-500"
+                            style={{ fontSize: `${skill.size}rem`, color: skill.color }}
+                            initial={{ opacity: 0.5, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.05, type: "spring", bounce: 0.4 }}
                         >
-                            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end">
-                                <span className="text-xl font-semibold mb-2 sm:mb-0">{skill.name}</span>
-                                <span className="font-bold text-lg text-accent">{skill.value}%</span>
-                            </div>
-                            <progress
-                                className={`progress ${skill.color} w-full h-6`}
-                                value={skill.value}
-                                max="100"
-                            ></progress>
-                        </motion.div>
+                            {skill.name}
+                        </motion.span>
                     ))}
-                </div>
+                </motion.div>
+                <p className="text-center text-base-content/70 mt-8 max-w-3xl mx-auto">
+                    Jag använder gärna både design- och kodverktyg för att ta fram applikationer som känns lekfulla men fortfarande har hög kvalitet.
+                </p>
             </div>
         </section>
     );
