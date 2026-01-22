@@ -95,11 +95,19 @@
     --surface-frost: rgba(255, 255, 255, 0.08);
     --card-glow: rgba(255, 255, 255, 0.15);
 
-    --gradient-layer-warm: color-mix(in srgb, var(--color-secondary) 65%, rgba(255, 255, 255, 0.45));
-    --gradient-layer-cool: color-mix(in srgb, var(--color-primary) 45%, rgba(255, 255, 255, 0.3));
-    --gradient-layer-aqua: color-mix(in srgb, var(--color-info) 35%, rgba(255, 255, 255, 0.25));
-    --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--color-base-100) 85%, rgba(255, 255, 255, 0.9)), color-mix(in srgb, var(--color-base-200) 60%, rgba(255, 255, 255, 0.65)));
-    --gradient-overlay: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3), transparent 45%);
+    --gradient-support-color: rgba(255, 255, 255, 0.85);
+    --gradient-base-color: var(--color-secondary);
+    --gradient-warm-strength: 55%;
+    --gradient-cool-strength: 45%;
+    --gradient-aqua-strength: 30%;
+    --gradient-linear-top: 50%;
+    --gradient-linear-bottom: 25%;
+    --gradient-overlay-strength: 35%;
+    --gradient-layer-warm: color-mix(in srgb, var(--gradient-base-color) var(--gradient-warm-strength), var(--gradient-support-color));
+    --gradient-layer-cool: color-mix(in srgb, var(--gradient-base-color) var(--gradient-cool-strength), var(--gradient-support-color));
+    --gradient-layer-aqua: color-mix(in srgb, var(--gradient-base-color) var(--gradient-aqua-strength), var(--gradient-support-color));
+    --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--gradient-base-color) var(--gradient-linear-top), var(--gradient-support-color)), color-mix(in srgb, var(--gradient-base-color) var(--gradient-linear-bottom), var(--gradient-support-color)));
+    --gradient-overlay: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--gradient-base-color) var(--gradient-overlay-strength), var(--gradient-support-color)), transparent 45%);
 }
 
 html {
@@ -140,11 +148,14 @@ body::before {
 }
 
 :root[data-theme="delta"] {
-    --gradient-layer-warm: color-mix(in srgb, var(--color-secondary) 60%, rgba(15, 23, 42, 0.8));
-    --gradient-layer-cool: color-mix(in srgb, var(--color-primary) 45%, rgba(2, 6, 23, 0.7));
-    --gradient-layer-aqua: color-mix(in srgb, var(--color-info) 50%, rgba(15, 23, 42, 0.6));
-    --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--color-base-100) 85%, rgba(15, 23, 42, 0.95)), color-mix(in srgb, var(--color-base-200) 55%, rgba(2, 6, 23, 0.8)));
-    --gradient-overlay: radial-gradient(circle at 30% -10%, color-mix(in srgb, var(--color-primary) 65%, rgba(15, 23, 42, 0.65)), transparent 45%);
+    --gradient-support-color: rgba(0, 0, 0, 0.75);
+    --gradient-base-color: var(--color-primary);
+    --gradient-warm-strength: 45%;
+    --gradient-cool-strength: 35%;
+    --gradient-aqua-strength: 25%;
+    --gradient-linear-top: 40%;
+    --gradient-linear-bottom: 20%;
+    --gradient-overlay-strength: 30%;
 }
 
 .word-cloud {

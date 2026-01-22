@@ -373,7 +373,7 @@ const SkillsSection = () => {
                     ))}
                 </motion.div>
                 <p className="text-center text-base-content/70 mt-8 max-w-3xl mx-auto">
-                    Jag använder gärna både design- och kodverktyg för att ta fram applikationer som känns lekfulla men fortfarande har hög kvalitet.
+                    Jag använder gärna både design- och kodverktyg för att ta fram applikationer.
                 </p>
             </div>
         </section>
