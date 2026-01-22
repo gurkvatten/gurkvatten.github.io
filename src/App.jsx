@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react';
 import profilBild from './assets/johan-profil.jpeg';
-// Lägg till FaApple i din import
 import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaApple } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
-// --- NAVBAR KOMPONENT ---
-//Testar
+// Landing page sections with Framer Motion-led interactions and iconography.
+
 const Navbar = () => {
     const [theme, setTheme] = useState('carbonfate');
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        // Ladda tema från localStorage
+        // Restore persisted theme and mirror it on the document element.
         const savedTheme = localStorage.getItem('theme') || 'carbonfate';
         setTheme(savedTheme);
         document.documentElement.setAttribute('data-theme', savedTheme);
 
-        // Scroll listener för navbar-effekt
+        // Detect page scroll to toggle navbar background.
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
         };
@@ -25,7 +24,6 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Stäng mobil-menyn när man scrollar
     useEffect(() => {
         const handleScroll = () => {
             if (mobileMenuOpen) {
@@ -44,10 +42,10 @@ const Navbar = () => {
     };
 
     const scrollToSection = (sectionId) => {
-        setMobileMenuOpen(false); // Stäng mobil-menyn
+        setMobileMenuOpen(false);
         const element = document.getElementById(sectionId);
         if (element) {
-            const offset = 80; // Höjd på navbar
+            const offset = 80;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -119,7 +117,7 @@ const Navbar = () => {
                             </button>
                         </div>
 
-                        {/* Dark Mode Toggle for small screens */}
+                        {/* Provide a compact toggle for small screens without repeating the desktop controls */}
                         <button 
                             onClick={toggleTheme}
                             className="btn btn-ghost btn-circle md:hidden"
@@ -132,7 +130,7 @@ const Navbar = () => {
                             )}
                         </button>
 
-                        {/* Mobile Menu Button */}
+                        {/* Open/close the overlay menu on mobile */}
                         <button 
                             onClick={toggleMobileMenu}
                             className="btn btn-ghost btn-circle ml-2 md:hidden"
@@ -148,7 +146,7 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            {/* Mobile Menu Overlay */}
+            {/* AnimatePresence keeps the overlay exit animation in sync with state */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
@@ -202,7 +200,7 @@ const Navbar = () => {
                                 </li>
                             </ul>
 
-                            {/* Social Links in Mobile Menu */}
+                            {/* Surface the same contact shortcuts that appear on desktop */}
                             <div className="divider"></div>
                             <div className="flex justify-center gap-4 mt-8">
                                 <a
@@ -239,7 +237,7 @@ const Navbar = () => {
     );
 };
 
-// --- HERO SECTION ---
+// Hero section introduces Johan with animated avatar, headline, and CTAs.
 const HeroSection = () => (
     <section id="hero" className="py-32 md:py-40 w-full flex-grow mt-16">
         <div className="container mx-auto px-4">
@@ -324,7 +322,7 @@ const HeroSection = () => (
     </section>
 );
 
-// --- SKILLS SECTION ---
+// Skills section renders a dynamic word cloud of core competencies.
 const SkillsSection = () => {
     const wordCloud = [
         { name: "Swift", size: 2.1, color: "var(--color-secondary)" },
@@ -380,7 +378,7 @@ const SkillsSection = () => {
     );
 };
 
-// --- TIMELINE SECTION ---
+// Timeline section captures education and experience milestones.
 const TimelineSection = () => (
     <section id="timeline" className="py-24 bg-base-100 w-full">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -452,7 +450,7 @@ const TimelineSection = () => (
     </section>
 );
 
-// --- NEWS SECTION ---
+// News section surfaces recent updates in projects and learning.
 const NewsSection = () => {
     const updates = [
         {
@@ -521,9 +519,9 @@ const NewsSection = () => {
     );
 };
 
-// --- PROJEKT SECTION ---
+// Projekt section shares the racing manager concept with CTAs and visuals.
 const ProjektSection = () => {
-    // Fokus på spelmekanik snarare än teknisk implementation
+    // Highlight the gameplay focus before drilling into technical details.
     const features = [
         {
             icon: <FaCar className="text-4xl" />,
@@ -547,7 +545,7 @@ const ProjektSection = () => {
         }
     ];
 
-    // Mer genrerelaterade taggar
+    // Tag badges hint at the game's genre and tone.
     const tags = [
         { name: "Manager Game", color: "badge-primary" },
         { name: "Strategy", color: "badge-secondary" },
@@ -576,7 +574,7 @@ const ProjektSection = () => {
     return (
         <section id="projekt" className="py-24 bg-base-100 w-full">
             <div className="container mx-auto px-4 max-w-6xl">
-                {/* Hero för Projektet */}
+                {/* Projekt hero block sells the experience, badges, and CTA trio. */}
                 <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
@@ -609,7 +607,7 @@ const ProjektSection = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-4 justify-center">
-                        {/* TestFlight Knapp */}
+                        {/* Primary CTA invites TestFlight beta testers. */}
                         <a
                             href="https://testflight.apple.com/join/b9X5jhaj"
                             target="_blank"
@@ -627,7 +625,7 @@ const ProjektSection = () => {
                     </div>
                 </motion.div>
 
-                {/* Features Grid */}
+                {/* Feature cards break down the gameplay hooks. */}
                 <motion.div
                     className="mb-20"
                     initial={{ opacity: 0, y: 20 }}
@@ -662,7 +660,7 @@ const ProjektSection = () => {
                     </div>
                 </motion.div>
 
-                {/* Screenshots & Visuals */}
+                {/* Mockup gallery gives a peek at UI states and atmosphere. */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -705,7 +703,7 @@ const ProjektSection = () => {
                     </div>
                 </motion.div>
 
-                {/* "Varför spela" - Istället för tekniska detaljer */}
+                {/* Appeal to beta testers with an explicit invitation to join. */}
                 <motion.div
                     className="mt-24 text-center max-w-2xl mx-auto"
                     initial={{ opacity: 0 }}
@@ -731,7 +729,7 @@ const ProjektSection = () => {
     );
 };
 
-// --- FOOTER ---
+// Footer delivers contact links and copyright notice.
 const AppFooter = () => (
     <footer className="footer footer-center p-10 bg-base-100 text-base-content mt-auto border-t border-base-300">
         <aside>
@@ -777,7 +775,7 @@ const AppFooter = () => (
     </footer>
 );
 
-// --- MAIN APP ---
+// App assembles every section into a single scrollable experience.
 const App = () => {
     return (
         <div className="min-h-screen bg-transparent flex flex-col">

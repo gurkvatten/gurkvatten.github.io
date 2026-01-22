@@ -1,4 +1,4 @@
-/* /src/App.css (eller motsvarande) */
+/* DaisyUI theme overrides extend the delta palette for this landing page. */
 
 @import "tailwindcss";
 @plugin "daisyui" {
@@ -7,34 +7,24 @@
 
 
 
-
+/* Dark delta palette for the night mode variant. */
 @plugin "daisyui/theme" {
     name: "deltalight";
-    default: true; /* Sätt denna till true om du vill att det ska vara ditt standardtema */
-    prefersdark: false; /* Ändrad till false */
-    color-scheme: "light"; /* Ändrad till light */
-
-    /* --- BAS & BAKGRUNDSFÄRGER (Ljust) --- */
-    /* Hög Ljushet (L) för ljusa bakgrunder */
-    --color-base-100: oklch(98% 0.003 264.542); /* Mycket ljust lila-blått (nästan vitt) */
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(98% 0.003 264.542);
     --color-base-200: oklch(94% 0.005 264.665);
     --color-base-300: oklch(88% 0.008 256.848);
-    /* Låg Ljushet (L) för mörk text på ljus bakgrund */
     --color-base-content: oklch(13% 0.028 261.692);
-
-    /* --- PRIMÄR & SEKUNDÄR FÄRGER --- */
-    --color-primary: oklch(0% 0 0); /* Svart (Kvar från originalet) */
-    --color-primary-content: oklch(100% 0 0); /* Vitt (Kvar från originalet) */
-    --color-secondary: oklch(45% 0.22 303.9); /* Mörkare magenta/lila för kontrast */
-    --color-secondary-content: oklch(97% 0.014 308.299); /* Ljus text på sekundär */
-    --color-accent: oklch(48% 0.18 25.331); /* Mörkare röd-orange för kontrast */
-    --color-accent-content: oklch(97% 0.013 17.38); /* Ljus text på accent */
-
-    /* --- NEUTRAL --- */
-    --color-neutral: oklch(50% 0.034 259.733); /* Mellangrå */
-    --color-neutral-content: oklch(98% 0.002 247.839); /* Ljus text på neutral */
-
-    /* --- STATUSFÄRGER (Justerad för kontrast mot ljus bas) --- */
+    --color-primary: oklch(0% 0 0);
+    --color-primary-content: oklch(100% 0 0);
+    --color-secondary: oklch(45% 0.22 303.9);
+    --color-secondary-content: oklch(97% 0.014 308.299);
+    --color-accent: oklch(48% 0.18 25.331);
+    --color-accent-content: oklch(97% 0.013 17.38);
+    --color-neutral: oklch(50% 0.034 259.733);
+    --color-neutral-content: oklch(98% 0.002 247.839);
     --color-info: oklch(50% 0.154 211.53);
     --color-info-content: oklch(90% 0.003 0);
     --color-success: oklch(50% 0.209 151.711);
@@ -89,6 +79,7 @@
 
 }
 
+/* Gradient helpers keep the hero glow consistent across themes. */
 :root {
     --hero-aurora-left: rgba(168, 137, 255, 0.35);
     --hero-aurora-right: rgba(14, 165, 233, 0.35);

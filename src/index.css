@@ -1,4 +1,4 @@
-/* /src/App.css (eller motsvarande) */
+/* Carbonfate theme overrides for the primary DaisyUI build. */
 
 @import "tailwindcss";
 @plugin "daisyui";
@@ -8,6 +8,7 @@
 
 
 
+/* Carbonfate light theme tokens. */
 @plugin "daisyui/theme" {
     name: "carbonfate";
     default: true;
@@ -44,6 +45,7 @@
 }
 
 
+/* Delta dark theme backup configuration. */
 @plugin "daisyui/theme" {
     name: "delta";
     default: false;
