@@ -10,7 +10,295 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Landing page sections with Framer Motion-led interactions and iconography.
 
-const Navbar = () => {
+const content = {
+    sv: {
+        nav: {
+            home: "Hem",
+            skills: "Färdigheter",
+            timeline: "Erfarenhet",
+            news: "Nyheter",
+            project: "Projekt",
+            themeAria: "Växla tema",
+            langAria: "Byt språk till engelska",
+            langLabel: "EN",
+            menuAria: "Öppna meny",
+        },
+        hero: {
+            firstName: "Johan",
+            lastName: "Karlsson",
+            titleLead: "Hej jag är",
+            titleRole: "Utvecklare",
+            body: "Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från både fullstack-projekt och frontend-arbete med Flutter, och jag drivs av att skapa rena och funktionella lösningar.",
+            ctaContact: "Kontakta Mig",
+            ctaGithub: "GitHub",
+            ctaLinkedin: "LinkedIn",
+        },
+        skills: {
+            titleLead: "Mina",
+            titleHighlight: "Färdigheter",
+            body: "Jag använder gärna både design- och kodverktyg för att ta fram applikationer.",
+        },
+        timeline: {
+            titleLead: "Erfarenhet &",
+            titleHighlight: "Utbildning",
+            items: [
+                {
+                    period: "2025 - Idag",
+                    title: "Yrkeshögskola",
+                    subtitle: "IT högskolan Javautvecklare",
+                    body: "Just nu pluggar jag Java.",
+                },
+                {
+                    period: "2024",
+                    title: "Frontend utvecklare",
+                    subtitle: "Eventstaden",
+                    body: "Jobbade med frontendkomponenter i Flutter.",
+                },
+                {
+                    period: "2022 - 2024",
+                    title: "Yrkeshögskoleexamen",
+                    subtitle: "Folkuniversitetet Mobilapplikationsutvecklare",
+                    body: "Fokus på Swift, Kotlin och lite backend.",
+                },
+                {
+                    period: "2022",
+                    title: "Karriärstart",
+                    subtitle: "Startade karriären inom tech!",
+                },
+            ],
+        },
+        news: {
+            titleLead: "Nyheter &",
+            titleHighlight: "vad jag gör nu",
+            updated: "Senast uppdaterad: Januari 2026",
+            updates: [
+                {
+                    date: "Jan 2026",
+                    title: "Allmänt TestFlight-test på gång",
+                    body: "Min app är redo att släppas till allmänna TestFlight-testare. Nu handlar det om att samla in feedback och finslipa upplevelsen.",
+                },
+                {
+                    date: "Jan 2026",
+                    title: "Utveckling mot databaser avslutad",
+                    body: "Avslutade kursen Utveckling mot databaser och har byggt upp en stabil grund i databaser och SQL.",
+                },
+                {
+                    date: "Nov 2025",
+                    title: "Javautveckling klar",
+                    body: "Jag har avslutat kursen Javautveckling och stärkts i allt från OOP till strukturerad problemlösning.",
+                },
+                {
+                    date: "Okt 2025",
+                    title: "Bygger Racing-manager i SwiftUI",
+                    body: "Jag implementerar ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
+                },
+            ],
+        },
+        project: {
+            titleLead: "Garagiste",
+            titleHighlight: "F1 Manager",
+            intro: "Har du vad som krävs för att leda ett stall till toppen? Ta rollen som Team Principal i detta strategiska managerspel. Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.",
+            ctaPrimary: "Gå med i TestFlight",
+            betaLabel: "🚧 Beta v1.0",
+            betaTip: "Spelet är i aktiv beta-fas",
+            features: [
+                {
+                    title: "Intensiva Race",
+                    description: "Följ loppen varv för varv. Dina förare reagerar på omgivningen, gör vågade omkörningar och kämpar om varje position.",
+                },
+                {
+                    title: "Strategiska Beslut",
+                    description: "När börjar däcken ta slut? Är det dags för en undercut? Dina beslut från depån avgör om det blir vinst eller förlust.",
+                },
+                {
+                    title: "Bygg ditt arv",
+                    description: "Starta från botten och arbeta dig uppåt. Investera prispengar i bilen, anställ bättre förare och ta ditt stall till mästerskapstiteln.",
+                },
+                {
+                    title: "Oförutsägbart",
+                    description: "Precis som i verkligheten kan allt hända. Väderomslag, krascher och Safety Cars kan vända upp och ner på strategin.",
+                },
+            ],
+            tags: ["Manager Game", "Strategy", "Racing", "iOS Native"],
+            screenshotsLead: "En titt in i",
+            screenshotsHighlight: "depån",
+            screenshots: [
+                {
+                    title: "Live Race",
+                    description: "Följ spänningen i realtid från depån",
+                    src: screenshotLiveRace,
+                },
+                {
+                    title: "Team Dashboard",
+                    description: "Håll koll på stallets status och resultat",
+                    src: screenshotTeamDashboard,
+                },
+                {
+                    title: "Team Selection",
+                    description: "Välj förare och strategi inför helgen",
+                    src: screenshotTeamSelection,
+                },
+                {
+                    title: "Upgrades",
+                    description: "Utveckla bilen och maximera prestanda",
+                    src: screenshotUpgrades,
+                },
+            ],
+            betaTitle: "Redo att testa?",
+            betaBody: "Jag söker just nu testpiloter som vill vara med och forma spelets framtid. Ladda ner beta-versionen via TestFlight och ge din feedback direkt i appen.",
+            betaLink: "Gå till TestFlight inbjudan →",
+        },
+        footer: {
+            role: "Utvecklare & Designer",
+            copyright: "© 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.",
+        },
+    },
+    en: {
+        nav: {
+            home: "Home",
+            skills: "Skills",
+            timeline: "Experience",
+            news: "News",
+            project: "Project",
+            themeAria: "Toggle theme",
+            langAria: "Byt språk till svenska",
+            langLabel: "SV",
+            menuAria: "Open menu",
+        },
+        hero: {
+            firstName: "Johan",
+            lastName: "Karlsson",
+            titleLead: "Hi I'm",
+            titleRole: "a Developer",
+            body: "I'm an app developer specializing in Java and mobile development with Swift and Kotlin. I have experience in both fullstack projects and frontend work with Flutter, and I enjoy building clean, functional solutions.",
+            ctaContact: "Contact Me",
+            ctaGithub: "GitHub",
+            ctaLinkedin: "LinkedIn",
+        },
+        skills: {
+            titleLead: "My",
+            titleHighlight: "Skills",
+            body: "I enjoy using both design and coding tools to craft applications.",
+        },
+        timeline: {
+            titleLead: "Experience &",
+            titleHighlight: "Education",
+            items: [
+                {
+                    period: "2025 - Present",
+                    title: "Vocational College",
+                    subtitle: "IT Högskolan Java Developer",
+                    body: "Currently studying Java.",
+                },
+                {
+                    period: "2024",
+                    title: "Frontend Developer",
+                    subtitle: "Eventstaden",
+                    body: "Worked on frontend components in Flutter.",
+                },
+                {
+                    period: "2022 - 2024",
+                    title: "Vocational Degree",
+                    subtitle: "Folkuniversitetet Mobile App Developer",
+                    body: "Focus on Swift, Kotlin, and some backend.",
+                },
+                {
+                    period: "2022",
+                    title: "Career Start",
+                    subtitle: "Started my career in tech!",
+                },
+            ],
+        },
+        news: {
+            titleLead: "News &",
+            titleHighlight: "what I'm working on",
+            updated: "Last updated: January 2026",
+            updates: [
+                {
+                    date: "Jan 2026",
+                    title: "Public TestFlight testing soon",
+                    body: "My app is ready for a public TestFlight release. Now it’s about collecting feedback and polishing the experience.",
+                },
+                {
+                    date: "Jan 2026",
+                    title: "Database Development completed",
+                    body: "Finished the Database Development course and built a solid foundation in databases and SQL.",
+                },
+                {
+                    date: "Nov 2025",
+                    title: "Java development completed",
+                    body: "Completed the Java Development course and strengthened everything from OOP to structured problem solving.",
+                },
+                {
+                    date: "Oct 2025",
+                    title: "Building a racing manager in SwiftUI",
+                    body: "I'm implementing a system for car upgrades and driver management, focusing on clearer and more interactive UI.",
+                },
+            ],
+        },
+        project: {
+            titleLead: "Garagiste",
+            titleHighlight: "F1 Manager",
+            intro: "Do you have what it takes to lead a team to the top? Take the role of Team Principal in this strategic manager game. You set the tactics, you build the car, and you live with the results.",
+            ctaPrimary: "Join TestFlight",
+            betaLabel: "🚧 Beta v1.0",
+            betaTip: "The game is in active beta",
+            features: [
+                {
+                    title: "Intense Races",
+                    description: "Follow races lap by lap. Your drivers react to the surroundings, make bold overtakes, and fight for every position.",
+                },
+                {
+                    title: "Strategic Decisions",
+                    description: "When do the tires fade? Is it time for an undercut? Your pit wall calls decide wins and losses.",
+                },
+                {
+                    title: "Build Your Legacy",
+                    description: "Start from the bottom and rise up. Reinvest prize money, hire better drivers, and take your team to a championship.",
+                },
+                {
+                    title: "Unpredictable",
+                    description: "Just like real life, anything can happen. Weather swings, crashes, and safety cars can flip the strategy.",
+                },
+            ],
+            tags: ["Manager Game", "Strategy", "Racing", "iOS Native"],
+            screenshotsLead: "A peek into the",
+            screenshotsHighlight: "pit",
+            screenshots: [
+                {
+                    title: "Live Race",
+                    description: "Follow the action live from the pit wall",
+                    src: screenshotLiveRace,
+                },
+                {
+                    title: "Team Dashboard",
+                    description: "Track your team's status and results",
+                    src: screenshotTeamDashboard,
+                },
+                {
+                    title: "Team Selection",
+                    description: "Choose drivers and strategy for the weekend",
+                    src: screenshotTeamSelection,
+                },
+                {
+                    title: "Upgrades",
+                    description: "Develop the car and maximize performance",
+                    src: screenshotUpgrades,
+                },
+            ],
+            betaTitle: "Ready to test?",
+            betaBody: "I'm looking for beta testers who want to shape the game's future. Download the beta via TestFlight and send feedback directly in the app.",
+            betaLink: "Go to the TestFlight invite →",
+        },
+        footer: {
+            role: "Developer & Designer",
+            copyright: "© 2025 Johan Karlsson. Built with DaisyUI & Tailwind CSS.",
+        },
+    },
+};
+
+const Navbar = ({ lang, onToggleLang }) => {
+    const t = content[lang];
     const [theme, setTheme] = useState('carbonfate');
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,34 +373,41 @@ const Navbar = () => {
                             <ul className="menu menu-horizontal px-1">
                                 <li>
                                     <button onClick={() => scrollToSection('hero')}>
-                                        Hem
+                                        {t.nav.home}
                                     </button>
                                 </li>
                                 <li>
                                     <button onClick={() => scrollToSection('skills')}>
-                                        Färdigheter
+                                        {t.nav.skills}
                                     </button>
                                 </li>
                                 <li>
                                     <button onClick={() => scrollToSection('timeline')}>
-                                        Erfarenhet
+                                        {t.nav.timeline}
                                     </button>
                                 </li>
                                 <li>
                                     <button onClick={() => scrollToSection('news')}>
-                                        Nyheter
+                                        {t.nav.news}
                                     </button>
                                 </li>
                                 <li>
                                     <button onClick={() => scrollToSection('projekt')} className="text-primary font-semibold">
-                                        Projekt
+                                        {t.nav.project}
                                     </button>
                                 </li>
                             </ul>
+                            <button
+                                onClick={onToggleLang}
+                                className="btn btn-ghost btn-sm uppercase"
+                                aria-label={t.nav.langAria}
+                            >
+                                {t.nav.langLabel}
+                            </button>
                             <button 
                                 onClick={toggleTheme}
                                 className="btn btn-ghost btn-circle"
-                                aria-label="Växla tema"
+                                aria-label={t.nav.themeAria}
                             >
                                 {theme === 'carbonfate' ? (
                                     <FaMoon className="text-xl" />
@@ -126,7 +421,7 @@ const Navbar = () => {
                         <button 
                             onClick={toggleTheme}
                             className="btn btn-ghost btn-circle md:hidden"
-                            aria-label="Växla tema"
+                            aria-label={t.nav.themeAria}
                         >
                             {theme === 'carbonfate' ? (
                                 <FaMoon className="text-xl" />
@@ -135,11 +430,19 @@ const Navbar = () => {
                             )}
                         </button>
 
+                        <button
+                            onClick={onToggleLang}
+                            className="btn btn-ghost btn-sm uppercase ml-2 md:hidden"
+                            aria-label={t.nav.langAria}
+                        >
+                            {t.nav.langLabel}
+                        </button>
+
                         {/* Open/close the overlay menu on mobile */}
                         <button 
                             onClick={toggleMobileMenu}
                             className="btn btn-ghost btn-circle ml-2 md:hidden"
-                            aria-label="Öppna meny"
+                            aria-label={t.nav.menuAria}
                         >
                             {mobileMenuOpen ? (
                                 <FaTimes className="text-xl" />
@@ -168,7 +471,7 @@ const Navbar = () => {
                                         onClick={() => scrollToSection('hero')}
                                         className="text-lg py-4"
                                     >
-                                        Hem
+                                        {t.nav.home}
                                     </button>
                                 </li>
                                 <li>
@@ -176,7 +479,7 @@ const Navbar = () => {
                                         onClick={() => scrollToSection('skills')}
                                         className="text-lg py-4"
                                     >
-                                        Färdigheter
+                                        {t.nav.skills}
                                     </button>
                                 </li>
                                 <li>
@@ -184,7 +487,7 @@ const Navbar = () => {
                                         onClick={() => scrollToSection('timeline')}
                                         className="text-lg py-4"
                                     >
-                                        Erfarenhet
+                                        {t.nav.timeline}
                                     </button>
                                 </li>
                                 <li>
@@ -192,7 +495,7 @@ const Navbar = () => {
                                         onClick={() => scrollToSection('news')}
                                         className="text-lg py-4"
                                     >
-                                        Nyheter
+                                        {t.nav.news}
                                     </button>
                                 </li>
                                 <li>
@@ -200,7 +503,7 @@ const Navbar = () => {
                                         onClick={() => scrollToSection('projekt')}
                                         className="text-primary font-semibold text-lg py-4"
                                     >
-                                        Projekt
+                                        {t.nav.project}
                                     </button>
                                 </li>
                             </ul>
@@ -243,15 +546,17 @@ const Navbar = () => {
 };
 
 // Hero section introduces Johan with animated avatar, headline, and CTAs.
-const HeroSection = () => (
-    <section id="hero" className="py-32 md:py-40 w-full flex-grow mt-16">
-        <div className="container mx-auto px-4">
-            <motion.div 
-                className="max-w-3xl mx-auto text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-            >
+const HeroSection = ({ lang }) => {
+    const t = content[lang];
+    return (
+        <section id="hero" className="py-32 md:py-40 w-full flex-grow mt-16">
+            <div className="container mx-auto px-4">
+                <motion.div 
+                    className="max-w-3xl mx-auto text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                >
                 <motion.div 
                     className="avatar mb-6"
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -269,7 +574,7 @@ const HeroSection = () => (
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
                 >
-                    <span className="text-primary">Johan</span> Karlsson
+                    <span className="text-primary">{t.hero.firstName}</span> {t.hero.lastName}
                 </motion.span>
 
                 <motion.h1 
@@ -278,7 +583,7 @@ const HeroSection = () => (
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
                 >
-                    <span className="text-primary">Hej jag är</span> Utvecklare
+                    <span className="text-primary">{t.hero.titleLead}</span> {t.hero.titleRole}
                 </motion.h1>
 
                 <motion.p 
@@ -287,7 +592,7 @@ const HeroSection = () => (
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.35, ease: "easeOut" }}
                 >
-                    Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från både fullstack-projekt och frontend-arbete med Flutter, och jag drivs av att skapa rena och funktionella lösningar.
+                    {t.hero.body}
                 </motion.p>
 
                 <motion.div 
@@ -301,7 +606,7 @@ const HeroSection = () => (
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaEnvelope className="text-xl" />
-                        Kontakta Mig
+                        {t.hero.ctaContact}
                     </a>
                     <a
                         href="https://github.com/gurkvatten"
@@ -310,7 +615,7 @@ const HeroSection = () => (
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaGithub className="text-xl" />
-                        GitHub
+                        {t.hero.ctaGithub}
                     </a>
                     <a
                         href="https://www.linkedin.com/in/johan-karlsson-871537223"
@@ -319,16 +624,18 @@ const HeroSection = () => (
                         className="btn btn-outline btn-lg flex items-center gap-3 transition duration-300 ease-in-out hover:bg-base-300 hover:text-primary"
                     >
                         <FaLinkedin className="text-xl" />
-                        LinkedIn
+                        {t.hero.ctaLinkedin}
                     </a>
                 </motion.div>
-            </motion.div>
-        </div>
-    </section>
-);
+                </motion.div>
+            </div>
+        </section>
+    );
+};
 
 // Skills section renders a dynamic word cloud of core competencies.
-const SkillsSection = () => {
+const SkillsSection = ({ lang }) => {
+    const t = content[lang];
     const wordCloud = [
         { name: "Swift", size: 2.1, color: "var(--color-secondary)" },
         { name: "Java", size: 2.0, color: "var(--color-secondary)" },
@@ -352,7 +659,7 @@ const SkillsSection = () => {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    Mina <span className="text-primary">Färdigheter</span>
+                    {t.skills.titleLead} <span className="text-primary">{t.skills.titleHighlight}</span>
                 </motion.h2>
 
                 <motion.div
@@ -376,7 +683,7 @@ const SkillsSection = () => {
                     ))}
                 </motion.div>
                 <p className="text-center text-base-content/70 mt-8 max-w-3xl mx-auto">
-                    Jag använder gärna både design- och kodverktyg för att ta fram applikationer.
+                    {t.skills.body}
                 </p>
             </div>
         </section>
@@ -384,9 +691,11 @@ const SkillsSection = () => {
 };
 
 // Timeline section captures education and experience milestones.
-const TimelineSection = () => (
-    <section id="timeline" className="py-24 bg-base-100 w-full">
-        <div className="container mx-auto px-4 max-w-4xl">
+const TimelineSection = ({ lang }) => {
+    const t = content[lang];
+    return (
+        <section id="timeline" className="py-24 bg-base-100 w-full">
+            <div className="container mx-auto px-4 max-w-4xl">
                 <motion.h2 
                     className="text-4xl font-bold text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
@@ -394,91 +703,72 @@ const TimelineSection = () => (
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    Erfarenhet & <span className="text-primary">Utbildning</span> 
+                    {t.timeline.titleLead} <span className="text-primary">{t.timeline.titleHighlight}</span> 🧑‍💻
                 </motion.h2>
 
-            <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                <li>
-                    <div className="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-primary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
-                    </div>
-                    <div className="timeline-start md:text-end mb-10">
-                        <time className="font-mono italic text-sm">2025 - Idag</time>
-                        <div className="text-2xl font-black text-primary">Yrkeshögskola</div>
-                        <h4 className="text-lg font-semibold">IT högskolan Javautvecklare</h4>
-                        <p className="text-base-content/80 mt-1">Just nu pluggar jag Java.</p>
-                    </div>
-                    <hr className="bg-primary" style={{ width: '8px' }}/>
-                </li>
+                <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+                    <li>
+                        <div className="timeline-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-primary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
+                        </div>
+                        <div className="timeline-start md:text-end mb-10">
+                            <time className="font-mono italic text-sm">{t.timeline.items[0].period}</time>
+                            <div className="text-2xl font-black text-primary">{t.timeline.items[0].title}</div>
+                            <h4 className="text-lg font-semibold">{t.timeline.items[0].subtitle}</h4>
+                            <p className="text-base-content/80 mt-1">{t.timeline.items[0].body}</p>
+                        </div>
+                        <hr className="bg-primary" style={{ width: '8px' }}/>
+                    </li>
 
-                <li>
-                    <hr className="bg-primary" style={{ width: '8px' }}/>
-                    <div className="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-secondary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
-                    </div>
-                    <div className="timeline-end mb-10">
-                        <time className="font-mono italic text-sm">2024</time>
-                        <div className="text-2xl font-black text-secondary">Frontend utvecklare</div>
-                        <h4 className="text-lg font-semibold">Eventstaden</h4>
-                        <p className="text-base-content/80 mt-1">Jobbade med frontendkomponenter i Flutter.</p>
-                    </div>
-                    <hr className="bg-secondary" style={{ width: '8px' }}/>
-                </li>
+                    <li>
+                        <hr className="bg-primary" style={{ width: '8px' }}/>
+                        <div className="timeline-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-secondary"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
+                        </div>
+                        <div className="timeline-end mb-10">
+                            <time className="font-mono italic text-sm">{t.timeline.items[1].period}</time>
+                            <div className="text-2xl font-black text-secondary">{t.timeline.items[1].title}</div>
+                            <h4 className="text-lg font-semibold">{t.timeline.items[1].subtitle}</h4>
+                            <p className="text-base-content/80 mt-1">{t.timeline.items[1].body}</p>
+                        </div>
+                        <hr className="bg-secondary" style={{ width: '8px' }}/>
+                    </li>
 
-                <li>
-                    <hr className="bg-secondary" style={{ width: '8px' }}/>
-                    <div className="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-accent"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
-                    </div>
-                    <div className="timeline-start md:text-end mb-40">
-                        <time className="font-mono italic text-sm">2022 - 2024</time>
-                        <div className="text-2xl font-black text-accent">Yrkeshögskoleexamen</div>
-                        <h4 className="text-lg font-semibold">Folkuniversitetet Mobilapplikationsutvecklare</h4>
-                        <p className="text-base-content/80 mt-1">Fokus på Swift, Kotlin och lite backend.</p>
-                    </div>
-                    <hr className="bg-accent" style={{ width: '8px' }}/>
-                </li>
+                    <li>
+                        <hr className="bg-secondary" style={{ width: '8px' }}/>
+                        <div className="timeline-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-accent"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
+                        </div>
+                        <div className="timeline-start md:text-end mb-40">
+                            <time className="font-mono italic text-sm">{t.timeline.items[2].period}</time>
+                            <div className="text-2xl font-black text-accent">{t.timeline.items[2].title}</div>
+                            <h4 className="text-lg font-semibold">{t.timeline.items[2].subtitle}</h4>
+                            <p className="text-base-content/80 mt-1">{t.timeline.items[2].body}</p>
+                        </div>
+                        <hr className="bg-accent" style={{ width: '8px' }}/>
+                    </li>
 
-                <li>
-                    <hr className="bg-accent" style={{ width: '8px' }}/>
-                    <div className="timeline-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
-                    </div>
-                    <div className="timeline-end mb-40">
-                        <time className="font-mono italic text-sm">2022</time>
-                        <div className="text-2xl font-black text-primary">Karriärstart</div>
-                        <h4 className="text-lg font-semibold">Startade karriären inom tech!</h4>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-);
+                    <li>
+                        <hr className="bg-accent" style={{ width: '8px' }}/>
+                        <div className="timeline-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-5 text-neutral"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858l-3.29 3.29-1.395-1.395a.75.75 0 10-1.06 1.06l2 2a.75.75 0 001.06 0l4-4z" clipRule="evenodd"/></svg>
+                        </div>
+                        <div className="timeline-end mb-40">
+                            <time className="font-mono italic text-sm">{t.timeline.items[3].period}</time>
+                            <div className="text-2xl font-black text-primary">{t.timeline.items[3].title}</div>
+                            <h4 className="text-lg font-semibold">{t.timeline.items[3].subtitle}</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    );
+};
 
 // News section surfaces recent updates in projects and learning.
-const NewsSection = () => {
-    const updates = [
-        {
-            date: "Jan 2026",
-            title: "Allmänt TestFlight-test på gång",
-            body: "Min app är redo att släppas till allmänna TestFlight-testare. Nu handlar det om att samla in feedback och finslipa upplevelsen.",
-        },
-        {
-            date: "Jan 2026",
-            title: "Utveckling mot databaser avslutad",
-            body: "Avslutade kursen Utveckling mot databaser och har byggt upp en stabil grund i databaser och SQL.",
-        },
-        {
-            date: "Nov 2025",
-            title: "Javautveckling klar",
-            body: "Jag har avslutat kursen Javautveckling och stärkts i allt från OOP till strukturerad problemlösning.",
-        },
-        {
-            date: "Okt 2025",
-            title: "Bygger Racing-manager i SwiftUI",
-            body: "Jag implementerar ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
-        },
-    ];
+const NewsSection = ({ lang }) => {
+    const t = content[lang];
+    const updates = t.news.updates;
 
     return (
         <section id="news" className="py-24 bg-base-200 w-full">
@@ -490,7 +780,7 @@ const NewsSection = () => {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    Nyheter & <span className="text-primary">vad jag gör nu</span>
+                    {t.news.titleLead} <span className="text-primary">{t.news.titleHighlight}</span> 📝
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -517,7 +807,7 @@ const NewsSection = () => {
                 </div>
 
                 <p className="text-center mt-12 text-base-content/60 italic">
-                    Senast uppdaterad: Januari 2026
+                    {t.news.updated}
                 </p>
             </div>
         </section>
@@ -525,61 +815,41 @@ const NewsSection = () => {
 };
 
 // Projekt section shares the racing manager concept with CTAs and visuals.
-const ProjektSection = () => {
+const ProjektSection = ({ lang }) => {
+    const t = content[lang];
     // Highlight the gameplay focus before drilling into technical details.
     const features = [
         {
             icon: <FaCar className="text-4xl" />,
-            title: "Intensiva Race",
-            description: "Följ loppen varv för varv. Dina förare reagerar på omgivningen, gör vågade omkörningar och kämpar om varje position."
+            title: t.project.features[0].title,
+            description: t.project.features[0].description
         },
         {
             icon: <FaChartLine className="text-4xl" />,
-            title: "Strategiska Beslut",
-            description: "När börjar däcken ta slut? Är det dags för en undercut? Dina beslut från depån avgör om det blir vinst eller förlust."
+            title: t.project.features[1].title,
+            description: t.project.features[1].description
         },
         {
             icon: <FaTrophy className="text-4xl" />,
-            title: "Bygg ditt arv",
-            description: "Starta från botten och arbeta dig uppåt. Investera prispengar i bilen, anställ bättre förare och ta ditt stall till mästerskapstiteln."
+            title: t.project.features[2].title,
+            description: t.project.features[2].description
         },
         {
             icon: <FaGamepad className="text-4xl" />,
-            title: "Oförutsägbart",
-            description: "Precis som i verkligheten kan allt hända. Väderomslag, krascher och Safety Cars kan vända upp och ner på strategin."
+            title: t.project.features[3].title,
+            description: t.project.features[3].description
         }
     ];
 
     // Tag badges hint at the game's genre and tone.
     const tags = [
-        { name: "Manager Game", color: "badge-primary" },
-        { name: "Strategy", color: "badge-secondary" },
-        { name: "Racing", color: "badge-accent" },
-        { name: "iOS Native", color: "badge-ghost" },
+        { name: t.project.tags[0], color: "badge-primary" },
+        { name: t.project.tags[1], color: "badge-secondary" },
+        { name: t.project.tags[2], color: "badge-accent" },
+        { name: t.project.tags[3], color: "badge-ghost" },
     ];
 
-    const screenshots = [
-        {
-            title: "Live Race",
-            description: "Följ spänningen i realtid från depån",
-            src: screenshotLiveRace
-        },
-        {
-            title: "Team Dashboard",
-            description: "Håll koll på stallets status och resultat",
-            src: screenshotTeamDashboard
-        },
-        {
-            title: "Team Selection",
-            description: "Välj mellan 4 olika säsonger",
-            src: screenshotTeamSelection
-        },
-        {
-            title: "Upgrades",
-            description: "Utveckla bilen och maximera prestanda",
-            src: screenshotUpgrades
-        }
-    ];
+    const screenshots = t.project.screenshots;
 
     return (
         <section id="projekt" className="py-24 bg-base-100 w-full">
@@ -603,13 +873,11 @@ const ProjektSection = () => {
                     </div>
 
                     <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                        Garagiste <span className="text-primary">F1 Manager</span>
+                        {t.project.titleLead} <span className="text-primary">{t.project.titleHighlight}</span>
                     </h2>
 
                     <p className="text-xl text-base-content/70 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Har du vad som krävs för att leda ett stall till toppen?
-                        Ta rollen som Team Principal i detta strategiska managerspel.
-                        Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.
+                        {t.project.intro}
                     </p>
 
                     <div className="flex flex-wrap gap-2 justify-center mb-10">
@@ -629,11 +897,11 @@ const ProjektSection = () => {
                             className="btn btn-primary btn-lg gap-3 shadow-lg hover:scale-105 transition-transform"
                         >
                             <FaApple className="text-2xl" />
-                            Gå med i TestFlight
+                            {t.project.ctaPrimary}
                         </a>
-                        <div className="tooltip" data-tip="Spelet är i aktiv beta-fas">
+                        <div className="tooltip" data-tip={t.project.betaTip}>
                             <button className="btn btn-outline btn-lg cursor-default">
-                                🚧 Beta v1.0
+                                {t.project.betaLabel}
                             </button>
                         </div>
                     </div>
@@ -683,7 +951,7 @@ const ProjektSection = () => {
                     viewport={{ once: true }}
                 >
                     <h3 className="text-3xl font-bold text-center mb-12">
-                        En titt in i <span className="text-primary">depån</span>
+                        {t.project.screenshotsLead} <span className="text-primary">{t.project.screenshotsHighlight}</span>
                     </h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
@@ -728,16 +996,15 @@ const ProjektSection = () => {
                     viewport={{ once: true }}
                 >
                     <div className="bg-base-200 p-8 rounded-3xl shadow-inner">
-                        <h4 className="text-2xl font-bold mb-4">Redo att testa?</h4>
+                        <h4 className="text-2xl font-bold mb-4">{t.project.betaTitle}</h4>
                         <p className="text-base-content/70 mb-6">
-                            Jag söker just nu testpiloter som vill vara med och forma spelets framtid.
-                            Ladda ner beta-versionen via TestFlight och ge din feedback direkt i appen.
+                            {t.project.betaBody}
                         </p>
                         <a
                             href="https://testflight.apple.com/join/b9X5jhaj"
                             className="link link-primary font-bold text-lg hover:text-primary-focus"
                         >
-                            Gå till TestFlight inbjudan &rarr;
+                            {t.project.betaLink}
                         </a>
                     </div>
                 </motion.div>
@@ -747,14 +1014,16 @@ const ProjektSection = () => {
 };
 
 // Footer delivers contact links and copyright notice.
-const AppFooter = () => (
-    <footer className="footer footer-center p-10 bg-base-100 text-base-content mt-auto border-t border-base-300">
-        <aside>
-            <p className="font-bold text-lg">
-                <span className="text-primary">Johan</span> Karlsson
-            </p>
-            <p className="text-base-content/70">Utvecklare & Designer</p>
-        </aside>
+const AppFooter = ({ lang }) => {
+    const t = content[lang];
+    return (
+        <footer className="footer footer-center p-10 bg-base-100 text-base-content mt-auto border-t border-base-300">
+            <aside>
+                <p className="font-bold text-lg">
+                    <span className="text-primary">Johan</span> Karlsson
+                </p>
+                <p className="text-base-content/70">{t.footer.role}</p>
+            </aside>
         <nav>
             <div className="grid grid-flow-col gap-4">
                 <a 
@@ -784,25 +1053,37 @@ const AppFooter = () => (
                 </a>
             </div>
         </nav>
-        <aside>
-            <p className="text-sm text-base-content/60">
-                © 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.
-            </p>
-        </aside>
-    </footer>
-);
+            <aside>
+                <p className="text-sm text-base-content/60">
+                    {t.footer.copyright}
+                </p>
+            </aside>
+        </footer>
+    );
+};
 
 // App assembles every section into a single scrollable experience.
 const App = () => {
+    const [lang, setLang] = useState(() => {
+        if (typeof window === 'undefined') return 'sv';
+        return localStorage.getItem('lang') || 'sv';
+    });
+
+    const toggleLang = () => {
+        const nextLang = lang === 'sv' ? 'en' : 'sv';
+        setLang(nextLang);
+        localStorage.setItem('lang', nextLang);
+    };
+
     return (
         <div className="min-h-screen bg-transparent flex flex-col">
-            <Navbar />
-            <HeroSection />
-            <SkillsSection />
-            <TimelineSection />
-            <NewsSection />
-            <ProjektSection />
-            <AppFooter />
+            <Navbar lang={lang} onToggleLang={toggleLang} />
+            <HeroSection lang={lang} />
+            <SkillsSection lang={lang} />
+            <TimelineSection lang={lang} />
+            <NewsSection lang={lang} />
+            <ProjektSection lang={lang} />
+            <AppFooter lang={lang} />
         </div>
     );
 };
