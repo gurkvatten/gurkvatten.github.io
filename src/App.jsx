@@ -894,6 +894,9 @@ const ProjektSection = ({ lang }) => {
                                 key={i}
                                 className="group"
                             >
+                                <p className="text-center text-base-content/80 text-sm font-semibold mb-3">
+                                    {shot.title}
+                                </p>
                                 <div className="mockup-phone border-primary">
                                     <div className="camera"></div>
                                     <div className="display">
@@ -903,9 +906,6 @@ const ProjektSection = ({ lang }) => {
                                                 alt={shot.title}
                                                 className="w-full h-full object-cover"
                                             />
-                                            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
-                                                <p className="text-white font-bold text-center">{shot.title}</p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
