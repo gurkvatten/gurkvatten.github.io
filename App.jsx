@@ -102,7 +102,7 @@ const TimelineSection = () => (
     <section className="py-24 bg-base-100 w-full">
         <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-4xl font-bold text-center mb-16">
-                Erfarenhet & <span className="text-primary">Utbildning</span> 🧑‍💻
+                Erfarenhet & <span className="text-primary">Utbildning</span>
             </h2>
 
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
@@ -202,7 +202,7 @@ const NewsSection = () => {
         <section className="py-24 bg-base-200 w-full">
             <div className="container mx-auto px-4 max-w-4xl">
                 <h2 className="text-4xl font-bold text-center mb-12">
-                    Nyheter & <span className="text-primary">vad jag gör nu</span> 📝
+                    Nyheter & <span className="text-primary">vad jag gör nu</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -270,7 +270,7 @@ const ProjectsSection = () => {
         <section className="py-24 bg-base-200 w-full">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-16">
-                    Utvalda <span className="text-primary">Projekt</span> 💼
+                    Utvalda <span className="text-primary">Projekt</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
