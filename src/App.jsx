@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import profilBild from './assets/johan-profil.jpeg';
+import garagisteIcon from './assets/garagisteicon1.png';
+import screenshotLiveRace from './assets/screenshot-liverace.png';
+import screenshotTeamDashboard from './assets/screenshot-teamdashboard.png';
+import screenshotTeamSelection from './assets/screenshot-teamselection.png';
+import screenshotUpgrades from './assets/screenshot-upgrades.png';
 import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaApple } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -153,7 +158,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
                         className="fixed inset-0 bg-base-100 z-40 md:hidden pt-20"
                     >
                         <div className="container mx-auto px-4 py-8">
@@ -245,13 +250,13 @@ const HeroSection = () => (
                 className="max-w-3xl mx-auto text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
             >
                 <motion.div 
                     className="avatar mb-6"
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
                 >
                     <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
                         <img src={profilBild} alt="Johan Karlsson Profilbild" />
@@ -262,7 +267,7 @@ const HeroSection = () => (
                     className="text-3xl font-bold mb-8 block"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
                 >
                     <span className="text-primary">Johan</span> Karlsson
                 </motion.span>
@@ -271,7 +276,7 @@ const HeroSection = () => (
                     className="text-5xl md:text-6xl font-bold mb-8 leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
+                    transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
                 >
                     <span className="text-primary">Hej jag är</span> Utvecklare
                 </motion.h1>
@@ -280,7 +285,7 @@ const HeroSection = () => (
                     className="text-base-content/70 text-xl mb-12 max-w-2xl mx-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
+                    transition={{ delay: 0.3, duration: 0.35, ease: "easeOut" }}
                 >
                     Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från både fullstack-projekt och frontend-arbete med Flutter, och jag drivs av att skapa rena och funktionella lösningar.
                 </motion.p>
@@ -289,7 +294,7 @@ const HeroSection = () => (
                     className="flex flex-wrap gap-4 justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
+                    transition={{ delay: 0.35, duration: 0.4, ease: "easeOut" }}
                 >
                     <a
                         href="mailto:johanwilhelmkarlsson@gmail.com"
@@ -344,7 +349,7 @@ const SkillsSection = () => {
                     className="text-4xl font-bold text-center mb-12"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     Mina <span className="text-primary">Färdigheter</span>
@@ -354,7 +359,7 @@ const SkillsSection = () => {
                     className="word-cloud mx-auto grid max-w-4xl gap-4 lg:gap-6 justify-center"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     {wordCloud.map((skill, index) => (
@@ -364,7 +369,7 @@ const SkillsSection = () => {
                             style={{ fontSize: `${skill.size}rem`, color: skill.color }}
                             initial={{ opacity: 0.5, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.05, type: "spring", bounce: 0.4 }}
+                            transition={{ delay: index * 0.03, duration: 0.35, ease: "easeOut" }}
                         >
                             {skill.name}
                         </motion.span>
@@ -382,15 +387,15 @@ const SkillsSection = () => {
 const TimelineSection = () => (
     <section id="timeline" className="py-24 bg-base-100 w-full">
         <div className="container mx-auto px-4 max-w-4xl">
-            <motion.h2 
-                className="text-4xl font-bold text-center mb-16"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-            >
-                Erfarenhet & <span className="text-primary">Utbildning</span> 🧑‍💻
-            </motion.h2>
+                <motion.h2 
+                    className="text-4xl font-bold text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                >
+                    Erfarenhet & <span className="text-primary">Utbildning</span> 
+                </motion.h2>
 
             <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                 <li>
@@ -454,24 +459,24 @@ const TimelineSection = () => (
 const NewsSection = () => {
     const updates = [
         {
+            date: "Jan 2026",
+            title: "Allmänt TestFlight-test på gång",
+            body: "Min app är redo att släppas till allmänna TestFlight-testare. Nu handlar det om att samla in feedback och finslipa upplevelsen.",
+        },
+        {
+            date: "Jan 2026",
+            title: "Utveckling mot databaser avslutad",
+            body: "Avslutade kursen Utveckling mot databaser och har byggt upp en stabil grund i databaser och SQL.",
+        },
+        {
+            date: "Nov 2025",
+            title: "Javautveckling klar",
+            body: "Jag har avslutat kursen Javautveckling och stärkts i allt från OOP till strukturerad problemlösning.",
+        },
+        {
             date: "Okt 2025",
             title: "Bygger Racing-manager i SwiftUI",
-            body: "Jag har börjat implementera ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
-        },
-        {
-            date: "Sep 2025",
-            title: "Experimenterar med SwiftUI-animeringar",
-            body: "Just nu testar jag hur bilarnas rörelser kan animeras på banan. Det är klurigt men väldigt roligt!",
-        },
-        {
-            date: "Sep 2025",
-            title: "Påbörjade en ny utbildning",
-            body: "Jag har börjat en utbildning i Java och ser fram emot att lära mig mer.",
-        },
-        {
-            date: "Aug 2025",
-            title: "Nytt personligt projekt!",
-            body: "Startade utvecklingen av mitt egna Racing-managementspel, inspirerat av klassikern Grand Prix Manager av Microprose.",
+            body: "Jag implementerar ett system för biluppgraderingar och förarhantering. Fokus ligger på att göra UI:t mer interaktivt och lättläst.",
         },
     ];
 
@@ -482,10 +487,10 @@ const NewsSection = () => {
                     className="text-4xl font-bold text-center mb-12"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    Nyheter & <span className="text-primary">vad jag gör nu</span> 📝
+                    Nyheter & <span className="text-primary">vad jag gör nu</span>
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -495,7 +500,7 @@ const NewsSection = () => {
                             className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
                             initial={{ opacity: 0.4, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                             viewport={{ once: true }}
                         >
                             <div className="card-body">
@@ -512,7 +517,7 @@ const NewsSection = () => {
                 </div>
 
                 <p className="text-center mt-12 text-base-content/60 italic">
-                    Senast uppdaterad: Oktober 2025
+                    Senast uppdaterad: Januari 2026
                 </p>
             </div>
         </section>
@@ -555,19 +560,24 @@ const ProjektSection = () => {
 
     const screenshots = [
         {
-            title: "Race Day",
+            title: "Live Race",
             description: "Följ spänningen i realtid från depån",
-            placeholder: "Live+Race"
+            src: screenshotLiveRace
         },
         {
-            title: "Högkvarteret",
-            description: "Utveckla bilen och hantera budgeten",
-            placeholder: "HQ+View"
+            title: "Team Dashboard",
+            description: "Håll koll på stallets status och resultat",
+            src: screenshotTeamDashboard
         },
         {
-            title: "Förarmarknad",
-            description: "Scouta och kontraktera nästa stjärna",
-            placeholder: "Driver+Market"
+            title: "Team Selection",
+            description: "Välj mellan 4 olika säsonger",
+            src: screenshotTeamSelection
+        },
+        {
+            title: "Upgrades",
+            description: "Utveckla bilen och maximera prestanda",
+            src: screenshotUpgrades
         }
     ];
 
@@ -579,12 +589,16 @@ const ProjektSection = () => {
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
-                            <FaCar className="text-4xl text-white" />
+                        <div className="w-28 h-28 flex items-center justify-center">
+                            <img
+                                src={garagisteIcon}
+                                alt="Garagiste F1 Manager"
+                                className="w-24 h-24 object-contain rounded-[22%]"
+                            />
                         </div>
                     </div>
 
@@ -630,6 +644,7 @@ const ProjektSection = () => {
                     className="mb-20"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -639,7 +654,7 @@ const ProjektSection = () => {
                                 className="card bg-base-200 border border-base-300 hover:border-primary/50 transition-all duration-300"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ delay: i * 0.08, duration: 0.35, ease: "easeOut" }}
                                 viewport={{ once: true }}
                             >
                                 <div className="card-body flex-row gap-6 items-start">
@@ -664,20 +679,21 @@ const ProjektSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     <h3 className="text-3xl font-bold text-center mb-12">
                         En titt in i <span className="text-primary">depån</span>
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                         {screenshots.map((shot, i) => (
                             <motion.div
                                 key={i}
                                 className="group"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{ delay: i * 0.08, duration: 0.35, ease: "easeOut" }}
                                 viewport={{ once: true }}
                             >
                                 <div className="mockup-phone border-primary">
@@ -685,7 +701,7 @@ const ProjektSection = () => {
                                     <div className="display">
                                         <div className="artboard artboard-demo phone-1 bg-base-300 relative overflow-hidden">
                                             <img
-                                                src={`https://placehold.co/320x568/2b2b2b/ffffff?text=${shot.placeholder}`}
+                                                src={shot.src}
                                                 alt={shot.title}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
@@ -708,6 +724,7 @@ const ProjektSection = () => {
                     className="mt-24 text-center max-w-2xl mx-auto"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
                     <div className="bg-base-200 p-8 rounded-3xl shadow-inner">
