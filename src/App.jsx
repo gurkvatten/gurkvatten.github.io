@@ -97,7 +97,7 @@ const content = {
             titleHighlight: "F1 Manager",
             intro: "Har du vad som krävs för att leda ett stall till toppen? Ta rollen som Team Principal i detta strategiska managerspel. Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.",
             ctaPrimary: "Gå med i TestFlight",
-            betaLabel: "🚧 Beta v1.0",
+            betaLabel: "Beta v1.0",
             betaTip: "Spelet är i aktiv beta-fas",
             features: [
                 {
@@ -239,7 +239,7 @@ const content = {
             titleHighlight: "F1 Manager",
             intro: "Do you have what it takes to lead a team to the top? Take the role of Team Principal in this strategic manager game. You set the tactics, you build the car, and you live with the results.",
             ctaPrimary: "Join TestFlight",
-            betaLabel: "🚧 Beta v1.0",
+            betaLabel: "Beta v1.0",
             betaTip: "The game is in active beta",
             features: [
                 {
@@ -661,7 +661,7 @@ const TimelineSection = ({ lang }) => {
                 <h2 
                     className="text-4xl font-bold text-center mb-16"
                 >
-                    {t.timeline.titleLead} <span className="text-primary">{t.timeline.titleHighlight}</span> 🧑‍💻
+                    {t.timeline.titleLead} <span className="text-primary">{t.timeline.titleHighlight}</span>
                 </h2>
 
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
@@ -734,7 +734,7 @@ const NewsSection = ({ lang }) => {
                 <h2 
                     className="text-4xl font-bold text-center mb-12"
                 >
-                    {t.news.titleLead} <span className="text-primary">{t.news.titleHighlight}</span> 📝
+                    {t.news.titleLead} <span className="text-primary">{t.news.titleHighlight}</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
