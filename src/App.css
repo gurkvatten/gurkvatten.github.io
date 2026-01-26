@@ -99,6 +99,7 @@
     --gradient-layer-aqua: color-mix(in srgb, var(--gradient-base-color) var(--gradient-aqua-strength), var(--gradient-support-color));
     --gradient-linear-base: linear-gradient(180deg, color-mix(in srgb, var(--gradient-base-color) var(--gradient-linear-top), var(--gradient-support-color)), color-mix(in srgb, var(--gradient-base-color) var(--gradient-linear-bottom), var(--gradient-support-color)));
     --gradient-overlay: radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--gradient-base-color) var(--gradient-overlay-strength), var(--gradient-support-color)), transparent 45%);
+    --parallax-shift: 0px;
 }
 
 html {
@@ -121,7 +122,12 @@ body {
         radial-gradient(circle at 80% 10%, var(--gradient-layer-cool), transparent 45%),
         radial-gradient(circle at 50% 80%, var(--gradient-layer-aqua), transparent 40%),
         var(--gradient-linear-base);
-    background-attachment: fixed;
+    background-position:
+        center calc(0% + var(--parallax-shift)),
+        center calc(0% + var(--parallax-shift)),
+        center calc(0% + var(--parallax-shift)),
+        center calc(0% + var(--parallax-shift));
+    background-attachment: scroll;
     background-color: var(--color-base-100);
     color: var(--color-base-content);
     transition: background 0.6s ease;
@@ -152,4 +158,11 @@ body::before {
 .word-cloud {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     justify-items: center;
+}
+
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
 }

@@ -6,9 +6,7 @@ import screenshotTeamDashboard from './assets/screenshot-teamdashboard.png';
 import screenshotTeamSelection from './assets/screenshot-teamselection.png';
 import screenshotUpgrades from './assets/screenshot-upgrades.png';
 import { FaEnvelope, FaGithub, FaLinkedin, FaSun, FaMoon, FaTimes, FaBars, FaCar, FaTrophy, FaChartLine, FaGamepad, FaApple } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
-
-// Landing page sections with Framer Motion-led interactions and iconography.
+// Landing page sections with iconography.
 
 const content = {
     sv: {
@@ -344,7 +342,7 @@ const Navbar = ({ lang, onToggleLang }) => {
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: 'auto'
             });
         }
     };
@@ -454,93 +452,86 @@ const Navbar = ({ lang, onToggleLang }) => {
                 </div>
             </nav>
 
-            {/* AnimatePresence keeps the overlay exit animation in sync with state */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="fixed inset-0 bg-base-100 z-40 md:hidden pt-20"
-                    >
-                        <div className="container mx-auto px-4 py-8">
-                            <ul className="menu menu-lg w-full">
-                                <li>
-                                    <button 
-                                        onClick={() => scrollToSection('hero')}
-                                        className="text-lg py-4"
-                                    >
-                                        {t.nav.home}
-                                    </button>
-                                </li>
-                                <li>
-                                    <button 
-                                        onClick={() => scrollToSection('skills')}
-                                        className="text-lg py-4"
-                                    >
-                                        {t.nav.skills}
-                                    </button>
-                                </li>
-                                <li>
-                                    <button 
-                                        onClick={() => scrollToSection('timeline')}
-                                        className="text-lg py-4"
-                                    >
-                                        {t.nav.timeline}
-                                    </button>
-                                </li>
-                                <li>
-                                    <button 
-                                        onClick={() => scrollToSection('news')}
-                                        className="text-lg py-4"
-                                    >
-                                        {t.nav.news}
-                                    </button>
-                                </li>
-                                <li>
-                                    <button 
-                                        onClick={() => scrollToSection('projekt')}
-                                        className="text-primary font-semibold text-lg py-4"
-                                    >
-                                        {t.nav.project}
-                                    </button>
-                                </li>
-                            </ul>
+            {mobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-base-100 z-40 md:hidden pt-20"
+                >
+                    <div className="container mx-auto px-4 py-8">
+                        <ul className="menu menu-lg w-full">
+                            <li>
+                                <button 
+                                    onClick={() => scrollToSection('hero')}
+                                    className="text-lg py-4"
+                                >
+                                    {t.nav.home}
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => scrollToSection('skills')}
+                                    className="text-lg py-4"
+                                >
+                                    {t.nav.skills}
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => scrollToSection('timeline')}
+                                    className="text-lg py-4"
+                                >
+                                    {t.nav.timeline}
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => scrollToSection('news')}
+                                    className="text-lg py-4"
+                                >
+                                    {t.nav.news}
+                                </button>
+                            </li>
+                            <li>
+                                <button 
+                                    onClick={() => scrollToSection('projekt')}
+                                    className="text-primary font-semibold text-lg py-4"
+                                >
+                                    {t.nav.project}
+                                </button>
+                            </li>
+                        </ul>
 
-                            {/* Surface the same contact shortcuts that appear on desktop */}
-                            <div className="divider"></div>
-                            <div className="flex justify-center gap-4 mt-8">
-                                <a
-                                    href="mailto:johanwilhelmkarlsson@gmail.com"
-                                    className="btn btn-circle btn-outline btn-lg"
-                                    aria-label="Email"
-                                >
-                                    <FaEnvelope className="text-xl" />
-                                </a>
-                                <a
-                                    href="https://github.com/gurkvatten"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-circle btn-outline btn-lg"
-                                    aria-label="GitHub"
-                                >
-                                    <FaGithub className="text-xl" />
-                                </a>
-                                <a
-                                    href="https://www.linkedin.com/in/johan-karlsson-871537223"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn btn-circle btn-outline btn-lg"
-                                    aria-label="LinkedIn"
-                                >
-                                    <FaLinkedin className="text-xl" />
-                                </a>
-                            </div>
+                        {/* Surface the same contact shortcuts that appear on desktop */}
+                        <div className="divider"></div>
+                        <div className="flex justify-center gap-4 mt-8">
+                            <a
+                                href="mailto:johanwilhelmkarlsson@gmail.com"
+                                className="btn btn-circle btn-outline btn-lg"
+                                aria-label="Email"
+                            >
+                                <FaEnvelope className="text-xl" />
+                            </a>
+                            <a
+                                href="https://github.com/gurkvatten"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-circle btn-outline btn-lg"
+                                aria-label="GitHub"
+                            >
+                                <FaGithub className="text-xl" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/johan-karlsson-871537223"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-circle btn-outline btn-lg"
+                                aria-label="LinkedIn"
+                            >
+                                <FaLinkedin className="text-xl" />
+                            </a>
                         </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
@@ -551,55 +542,37 @@ const HeroSection = ({ lang }) => {
     return (
         <section id="hero" className="py-32 md:py-40 w-full flex-grow mt-16">
             <div className="container mx-auto px-4">
-                <motion.div 
+                <div 
                     className="max-w-3xl mx-auto text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
                 >
-                <motion.div 
+                <div 
                     className="avatar mb-6"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.35, delay: 0.1, ease: "easeOut" }}
                 >
                     <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
                         <img src={profilBild} alt="Johan Karlsson Profilbild" />
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.span 
+                <span 
                     className="text-3xl font-bold mb-8 block"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
                 >
                     <span className="text-primary">{t.hero.firstName}</span> {t.hero.lastName}
-                </motion.span>
+                </span>
 
-                <motion.h1 
+                <h1 
                     className="text-5xl md:text-6xl font-bold mb-8 leading-tight"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
                 >
                     <span className="text-primary">{t.hero.titleLead}</span> {t.hero.titleRole}
-                </motion.h1>
+                </h1>
 
-                <motion.p 
+                <p 
                     className="text-base-content/70 text-xl mb-12 max-w-2xl mx-auto"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.35, ease: "easeOut" }}
                 >
                     {t.hero.body}
-                </motion.p>
+                </p>
 
-                <motion.div 
+                <div 
                     className="flex flex-wrap gap-4 justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35, duration: 0.4, ease: "easeOut" }}
                 >
                     <a
                         href="mailto:johanwilhelmkarlsson@gmail.com"
@@ -626,8 +599,8 @@ const HeroSection = ({ lang }) => {
                         <FaLinkedin className="text-xl" />
                         {t.hero.ctaLinkedin}
                     </a>
-                </motion.div>
-                </motion.div>
+                </div>
+                </div>
             </div>
         </section>
     );
@@ -652,36 +625,25 @@ const SkillsSection = ({ lang }) => {
     return (
         <section id="skills" className="py-16 bg-base-200 w-full">
             <div className="container mx-auto px-4">
-                <motion.h2 
+                <h2 
                     className="text-4xl font-bold text-center mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     {t.skills.titleLead} <span className="text-primary">{t.skills.titleHighlight}</span>
-                </motion.h2>
+                </h2>
 
-                <motion.div
+                <div
                     className="word-cloud mx-auto grid max-w-4xl gap-4 lg:gap-6 justify-center"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     {wordCloud.map((skill, index) => (
-                        <motion.span
+                        <span
                             key={index}
                             className="inline-flex items-center justify-center font-semibold transition-transform duration-500"
                             style={{ fontSize: `${skill.size}rem`, color: skill.color }}
-                            initial={{ opacity: 0.5, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.03, duration: 0.35, ease: "easeOut" }}
                         >
                             {skill.name}
-                        </motion.span>
+                        </span>
                     ))}
-                </motion.div>
+                </div>
                 <p className="text-center text-base-content/70 mt-8 max-w-3xl mx-auto">
                     {t.skills.body}
                 </p>
@@ -696,15 +658,11 @@ const TimelineSection = ({ lang }) => {
     return (
         <section id="timeline" className="py-24 bg-base-100 w-full">
             <div className="container mx-auto px-4 max-w-4xl">
-                <motion.h2 
+                <h2 
                     className="text-4xl font-bold text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     {t.timeline.titleLead} <span className="text-primary">{t.timeline.titleHighlight}</span> 🧑‍💻
-                </motion.h2>
+                </h2>
 
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     <li>
@@ -773,25 +731,17 @@ const NewsSection = ({ lang }) => {
     return (
         <section id="news" className="py-24 bg-base-200 w-full">
             <div className="container mx-auto px-4 max-w-4xl">
-                <motion.h2 
+                <h2 
                     className="text-4xl font-bold text-center mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     {t.news.titleLead} <span className="text-primary">{t.news.titleHighlight}</span> 📝
-                </motion.h2>
+                </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {updates.map((post, i) => (
-                        <motion.div
+                        <div
                             key={i}
                             className="card bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
-                            initial={{ opacity: 0.4, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
-                            viewport={{ once: true }}
                         >
                             <div className="card-body">
                                 <time className="text-sm text-base-content/60">{post.date}</time>
@@ -802,7 +752,7 @@ const NewsSection = ({ lang }) => {
                                     {post.body}
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
@@ -855,12 +805,8 @@ const ProjektSection = ({ lang }) => {
         <section id="projekt" className="py-24 bg-base-100 w-full">
             <div className="container mx-auto px-4 max-w-6xl">
                 {/* Projekt hero block sells the experience, badges, and CTA trio. */}
-                <motion.div
+                <div
                     className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     <div className="flex items-center justify-center gap-4 mb-6">
                         <div className="w-28 h-28 flex items-center justify-center">
@@ -905,25 +851,17 @@ const ProjektSection = ({ lang }) => {
                             </button>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Feature cards break down the gameplay hooks. */}
-                <motion.div
+                <div
                     className="mb-20"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {features.map((feature, i) => (
-                            <motion.div
+                            <div
                                 key={i}
                                 className="card bg-base-200 border border-base-300 hover:border-primary/50 transition-all duration-300"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.08, duration: 0.35, ease: "easeOut" }}
-                                viewport={{ once: true }}
                             >
                                 <div className="card-body flex-row gap-6 items-start">
                                     <div className="text-primary mt-1">
@@ -938,17 +876,13 @@ const ProjektSection = ({ lang }) => {
                                         </p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Mockup gallery gives a peek at UI states and atmosphere. */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    viewport={{ once: true }}
+                <div
                 >
                     <h3 className="text-3xl font-bold text-center mb-12">
                         {t.project.screenshotsLead} <span className="text-primary">{t.project.screenshotsHighlight}</span>
@@ -956,13 +890,9 @@ const ProjektSection = ({ lang }) => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                         {screenshots.map((shot, i) => (
-                            <motion.div
+                            <div
                                 key={i}
                                 className="group"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: i * 0.08, duration: 0.35, ease: "easeOut" }}
-                                viewport={{ once: true }}
                             >
                                 <div className="mockup-phone border-primary">
                                     <div className="camera"></div>
@@ -971,7 +901,7 @@ const ProjektSection = ({ lang }) => {
                                             <img
                                                 src={shot.src}
                                                 alt={shot.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                className="w-full h-full object-cover"
                                             />
                                             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
                                                 <p className="text-white font-bold text-center">{shot.title}</p>
@@ -982,18 +912,14 @@ const ProjektSection = ({ lang }) => {
                                 <p className="text-center mt-6 text-base-content/60 text-sm font-medium">
                                     {shot.description}
                                 </p>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Appeal to beta testers with an explicit invitation to join. */}
-                <motion.div
+                <div
                     className="mt-24 text-center max-w-2xl mx-auto"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    viewport={{ once: true }}
                 >
                     <div className="bg-base-200 p-8 rounded-3xl shadow-inner">
                         <h4 className="text-2xl font-bold mb-4">{t.project.betaTitle}</h4>
@@ -1007,7 +933,7 @@ const ProjektSection = ({ lang }) => {
                             {t.project.betaLink}
                         </a>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
@@ -1074,6 +1000,27 @@ const App = () => {
         setLang(nextLang);
         localStorage.setItem('lang', nextLang);
     };
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        let ticking = false;
+        const handleScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                const offset = Math.min(window.scrollY * 0.03, 24);
+                document.documentElement.style.setProperty('--parallax-shift', `${offset}px`);
+                ticking = false;
+            });
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="min-h-screen bg-transparent flex flex-col">
