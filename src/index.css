@@ -1,83 +1,76 @@
-/* Carbonfate theme overrides for the primary DaisyUI build. */
+/* Apex theme tokens for the browser-side Tailwind processor. */
 
 @import "tailwindcss";
 @plugin "daisyui";
 
-
-
-
-
-
-/* Carbonfate light theme tokens. */
+/* ── Dark theme (default) ─────────────────────────────── */
 @plugin "daisyui/theme" {
-    name: "carbonfate";
+    name: "apex";
     default: true;
-    prefersdark: false;
-    color-scheme: "light";
-    --color-base-100: oklch(90% 0.001 106.423);
-    --color-base-200: oklch(88% 0.001 106.424);
-    --color-base-300: oklch(83% 0.003 48.717);
-    --color-base-content: oklch(21% 0.006 56.043);
-    --color-primary: oklch(60% 0.126 221.723);
-    --color-primary-content: oklch(98% 0.019 200.873);
-    --color-secondary: oklch(68% 0.162 75.834);
-    --color-secondary-content: oklch(98% 0.026 102.212);
-    --color-accent: oklch(59% 0.145 163.225);
-    --color-accent-content: oklch(97% 0.021 166.113);
-    --color-neutral: oklch(44% 0.011 73.639);
-    --color-neutral-content: oklch(98% 0.001 106.423);
-    --color-info: oklch(62% 0.214 259.815);
-    --color-info-content: oklch(97% 0.014 254.604);
-    --color-success: oklch(72% 0.219 149.579);
-    --color-success-content: oklch(98% 0.018 155.826);
-    --color-warning: oklch(70% 0.213 47.604);
-    --color-warning-content: oklch(98% 0.016 73.684);
-    --color-error: oklch(65% 0.241 354.308);
-    --color-error-content: oklch(97% 0.014 343.198);
-    --radius-selector: 2rem;
-    --radius-field: 2rem;
-    --radius-box: 2rem;
-    --size-selector: 0.3125rem;
-    --size-field: 0.3125rem;
-    --border: 2px;
-    --depth: 1;
-    --noise: 1;
-}
-
-
-/* Delta dark theme backup configuration. */
-@plugin "daisyui/theme" {
-    name: "delta";
-    default: false;
     prefersdark: true;
     color-scheme: "dark";
-    --color-base-100: oklch(25% 0.004 49.25);
-    --color-base-200: oklch(28% 0.006 56.043);
-    --color-base-300: oklch(35% 0.007 34.298);
-    --color-base-content: oklch(97% 0.001 106.424);
-    --color-primary: oklch(62% 0.265 303.9);
-    --color-primary-content: oklch(97% 0.014 308.299);
-    --color-secondary: oklch(62% 0.214 259.815);
-    --color-secondary-content: oklch(97% 0.014 254.604);
-    --color-accent: oklch(69% 0.17 162.48);
-    --color-accent-content: oklch(97% 0.021 166.113);
-    --color-neutral: oklch(44% 0.011 73.639);
-    --color-neutral-content: oklch(98% 0.001 106.423);
-    --color-info: oklch(74% 0.16 232.661);
-    --color-info-content: oklch(29% 0.066 243.157);
-    --color-success: oklch(79% 0.209 151.711);
-    --color-success-content: oklch(26% 0.065 152.934);
-    --color-warning: oklch(82% 0.189 84.429);
-    --color-warning-content: oklch(27% 0.077 45.635);
-    --color-error: oklch(70% 0.191 22.216);
-    --color-error-content: oklch(25% 0.092 26.042);
-    --radius-selector: 2rem;
-    --radius-field: 2rem;
-    --radius-box: 2rem;
+    --color-base-100: oklch(10% 0.008 265);
+    --color-base-200: oklch(14% 0.008 265);
+    --color-base-300: oklch(20% 0.010 265);
+    --color-base-content: oklch(93% 0.005 265);
+    --color-primary: oklch(58% 0.240 25);
+    --color-primary-content: oklch(98% 0 0);
+    --color-secondary: oklch(72% 0.18 50);
+    --color-secondary-content: oklch(10% 0 0);
+    --color-accent: oklch(72% 0.15 200);
+    --color-accent-content: oklch(10% 0.01 200);
+    --color-neutral: oklch(22% 0.008 265);
+    --color-neutral-content: oklch(75% 0.005 265);
+    --color-info: oklch(65% 0.16 232);
+    --color-info-content: oklch(98% 0 0);
+    --color-success: oklch(65% 0.19 149);
+    --color-success-content: oklch(98% 0 0);
+    --color-warning: oklch(72% 0.19 84);
+    --color-warning-content: oklch(10% 0 0);
+    --color-error: oklch(65% 0.22 0);
+    --color-error-content: oklch(98% 0 0);
+    --radius-selector: 0.375rem;
+    --radius-field: 0.375rem;
+    --radius-box: 0.75rem;
     --size-selector: 0.3125rem;
     --size-field: 0.3125rem;
-    --border: 2px;
-    --depth: 1;
-    --noise: 1;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
 
+/* ── Light theme ──────────────────────────────────────── */
+@plugin "daisyui/theme" {
+    name: "apex-light";
+    default: false;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(98% 0.002 264);
+    --color-base-200: oklch(95% 0.003 264);
+    --color-base-300: oklch(90% 0.005 264);
+    --color-base-content: oklch(12% 0.008 265);
+    --color-primary: oklch(50% 0.230 25);
+    --color-primary-content: oklch(98% 0 0);
+    --color-secondary: oklch(58% 0.18 50);
+    --color-secondary-content: oklch(98% 0 0);
+    --color-accent: oklch(50% 0.16 200);
+    --color-accent-content: oklch(98% 0 0);
+    --color-neutral: oklch(90% 0.005 264);
+    --color-neutral-content: oklch(25% 0.008 264);
+    --color-info: oklch(50% 0.16 232);
+    --color-info-content: oklch(98% 0 0);
+    --color-success: oklch(50% 0.19 149);
+    --color-success-content: oklch(98% 0 0);
+    --color-warning: oklch(58% 0.19 84);
+    --color-warning-content: oklch(98% 0 0);
+    --color-error: oklch(50% 0.22 0);
+    --color-error-content: oklch(98% 0 0);
+    --radius-selector: 0.375rem;
+    --radius-field: 0.375rem;
+    --radius-box: 0.75rem;
+    --size-selector: 0.3125rem;
+    --size-field: 0.3125rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
 }
