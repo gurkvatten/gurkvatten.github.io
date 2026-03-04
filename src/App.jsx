@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import profilBild from './assets/johan-profil.jpeg';
 import garagisteIcon from './assets/garagisteicon1.png';
 import screenshotLiveRace from './assets/screenshot-liverace.png';
@@ -299,17 +300,32 @@ const Navbar = ({ lang, onToggleLang }) => {
     );
 };
 
+// ── Gradient Background ───────────────────────────────────
+function GradientBackground({ className = '', style = {}, transition, ...props }) {
+    const t = transition ?? { duration: 15, ease: 'easeInOut', repeat: Infinity };
+    return (
+        <motion.div
+            className={`size-full ${className}`}
+            style={{
+                background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-secondary), var(--color-primary))',
+                backgroundSize: '400% 400%',
+                ...style,
+            }}
+            animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+            transition={t}
+            {...props}
+        />
+    );
+}
+
 // ── Hero ──────────────────────────────────────────────────
 const HeroSection = ({ lang }) => {
     const t = content[lang].hero;
     return (
         <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-            {/* Background glow blobs */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-                <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full opacity-[0.07]"
-                    style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)' }} />
-                <div className="absolute bottom-0 -left-32 w-80 h-80 rounded-full opacity-[0.04]"
-                    style={{ background: 'radial-gradient(circle, var(--color-secondary) 0%, transparent 70%)' }} />
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.07]" aria-hidden="true">
+                <GradientBackground />
             </div>
 
             <div className="max-w-6xl mx-auto px-5 w-full pt-20 pb-16">
