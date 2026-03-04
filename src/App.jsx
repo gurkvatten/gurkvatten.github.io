@@ -238,8 +238,8 @@ const Navbar = ({ lang, onToggleLang }) => {
 
                     {/* Logo */}
                     <button onClick={() => scrollTo('hero')} className="flex items-center gap-2 group">
-                        <span className="text-xl font-black tracking-tight text-primary group-hover:opacity-75 transition-opacity">JK</span>
-                        <span className="hidden sm:block text-xs text-base-content/35 font-semibold tracking-widest uppercase">Portfolio</span>
+                        <span className="text-xl font-black tracking-tight text-primary group-hover:opacity-75 transition-opacity" style={{ fontFamily: "'Aldrich', sans-serif" }}>JK</span>
+                        <span className="hidden sm:block text-xs text-base-content/35 font-semibold tracking-widest uppercase" style={{ fontFamily: "'Aldrich', sans-serif" }}>Portfolio</span>
                     </button>
 
                     {/* Desktop links */}
@@ -275,7 +275,7 @@ const Navbar = ({ lang, onToggleLang }) => {
             {menuOpen && (
                 <div className="fixed inset-0 z-50 bg-base-100 flex flex-col p-6 md:hidden">
                     <div className="flex items-center justify-between mb-10">
-                        <span className="text-2xl font-black text-primary">JK</span>
+                        <span className="text-2xl font-black text-primary" style={{ fontFamily: "'Aldrich', sans-serif" }}>JK</span>
                         <button onClick={() => setMenuOpen(false)} className="btn btn-ghost btn-square">
                             <FaTimes size={20} />
                         </button>
