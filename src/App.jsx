@@ -50,8 +50,9 @@ const content = {
         },
         news: {
             sectionNum: '04', titleLead: 'Nyheter &', titleHighlight: 'vad jag gör nu',
-            updated: 'Senast uppdaterad: Januari 2026',
+            updated: 'Senast uppdaterad: Mars 2026',
             updates: [
+                {date: 'Mar 2026', title: 'Javaverktyg och byggmiljöer klar',       body: 'Färdig med kursen Javaverktyg och byggmiljöer.' },
                 { date: 'Jan 2026', title: 'Allmänt TestFlight-test på gång',       body: 'Min app är redo att släppas till allmänna TestFlight-testare. Nu handlar det om att samla in feedback och finslipa upplevelsen.' },
                 { date: 'Jan 2026', title: 'Utveckling mot databaser avslutad',      body: 'Avslutade kursen Utveckling mot databaser och har byggt upp en stabil grund i databaser och SQL.' },
                 { date: 'Nov 2025', title: 'Javautveckling klar',                    body: 'Jag har avslutat kursen Javautveckling och stärkts i allt från OOP till strukturerad problemlösning.' },
@@ -59,7 +60,7 @@ const content = {
             ],
         },
         project: {
-            sectionNum: '05', label: 'Utvaldat Projekt',
+            sectionNum: '05', label: 'Utvalda Projekt',
             titleLead: 'Garagiste', titleHighlight: 'F1 Manager',
             intro: 'Har du vad som krävs för att leda ett stall till toppen? Ta rollen som Team Principal i detta strategiska managerspel. Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.',
             ctaPrimary: 'Gå med i TestFlight', betaLabel: 'Beta v1.0', betaTip: 'Spelet är i aktiv beta-fas',
@@ -117,8 +118,9 @@ const content = {
         },
         news: {
             sectionNum: '04', titleLead: 'News &', titleHighlight: "what I'm working on",
-            updated: 'Last updated: January 2026',
+            updated: 'Last updated: Mars 2026',
             updates: [
+                {date: 'Mar 2026', title: 'Javaverktyg och byggmiljöer done',       body: 'Im done with the course Javaverktyg och byggmiljöer.' },
                 { date: 'Jan 2026', title: 'Public TestFlight testing soon',       body: "My app is ready for a public TestFlight release. Now it's about collecting feedback and polishing the experience." },
                 { date: 'Jan 2026', title: 'Database Development completed',        body: 'Finished the Database Development course and built a solid foundation in databases and SQL.' },
                 { date: 'Nov 2025', title: 'Java development completed',            body: 'Completed the Java Development course and strengthened everything from OOP to structured problem solving.' },
@@ -182,6 +184,7 @@ const typeLabel = {
 };
 
 // ── Navbar ────────────────────────────────────────────────
+// eslint-disable-next-line react/prop-types
 const Navbar = ({ lang, onToggleLang }) => {
     const t = content[lang];
     const [theme, setTheme]       = useState(() => localStorage.getItem('theme') || 'apex');
