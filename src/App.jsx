@@ -307,7 +307,7 @@ function GradientBackground({ className = '', style = {}, transition, ...props }
         <motion.div
             className={`size-full ${className}`}
             style={{
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-secondary), var(--color-primary))',
+                background: 'linear-gradient(135deg, oklch(50% 0.28 295), oklch(55% 0.22 265), oklch(60% 0.25 240), oklch(50% 0.28 295))',
                 backgroundSize: '400% 400%',
                 ...style,
             }}
