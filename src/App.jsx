@@ -302,12 +302,12 @@ const Navbar = ({ lang, onToggleLang }) => {
 
 // ── Gradient Background ───────────────────────────────────
 function GradientBackground({ className = '', style = {}, transition, ...props }) {
-    const t = transition ?? { duration: 15, ease: 'easeInOut', repeat: Infinity };
+    const t = transition ?? { duration: 6, ease: 'easeInOut', repeat: Infinity };
     return (
         <motion.div
             className={`size-full ${className}`}
             style={{
-                background: 'linear-gradient(135deg, oklch(50% 0.28 295), oklch(55% 0.22 265), oklch(60% 0.25 240), oklch(50% 0.28 295))',
+                background: 'linear-gradient(135deg, oklch(55% 0.32 305), oklch(45% 0.20 260), oklch(65% 0.28 230), oklch(55% 0.32 305))',
                 backgroundSize: '400% 400%',
                 ...style,
             }}
@@ -324,7 +324,7 @@ const HeroSection = ({ lang }) => {
     return (
         <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
             {/* Animated gradient background */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.07]" aria-hidden="true">
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.12]" aria-hidden="true">
                 <GradientBackground />
             </div>
 
