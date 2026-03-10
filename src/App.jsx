@@ -61,7 +61,7 @@ const content = {
         },
         project: {
             sectionNum: '05', label: 'Utvalda Projekt',
-            titleLead: 'Garagiste', titleHighlight: 'F1 Manager',
+            titleLead: 'Garagiste', titleHighlight: 'Racing Manager',
             intro: 'Har du vad som krävs för att leda ett stall till toppen? Ta rollen som Team Principal i detta strategiska managerspel. Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.',
             ctaPrimary: 'Gå med i TestFlight', betaLabel: 'Beta v1.0', betaTip: 'Spelet är i aktiv beta-fas',
             features: [
@@ -129,7 +129,7 @@ const content = {
         },
         project: {
             sectionNum: '05', label: 'Featured Project',
-            titleLead: 'Garagiste', titleHighlight: 'F1 Manager',
+            titleLead: 'Garagiste', titleHighlight: 'Racing Manager',
             intro: 'Do you have what it takes to lead a team to the top? Take the role of Team Principal in this strategic manager game. You set the tactics, you build the car, and you live with the results.',
             ctaPrimary: 'Join TestFlight', betaLabel: 'Beta v1.0', betaTip: 'The game is in active beta',
             features: [
@@ -524,7 +524,7 @@ const ProjektSection = ({ lang }) => {
                                     style={{ background: 'radial-gradient(circle, var(--color-primary) 0%, transparent 70%)' }} />
                                 <img
                                     src={garagisteIcon}
-                                    alt="Garagiste F1 Manager"
+                                    alt="Garagiste Racing Manager"
                                     className="relative w-24 h-24 rounded-2xl shadow-2xl"
                                 />
                             </div>
