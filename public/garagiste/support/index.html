@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garagiste – Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Aldrich&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:       #0f0f13;
+            --surface:  #1a1a22;
+            --border:   rgba(255,255,255,0.08);
+            --primary:  #b91c1c;
+            --text:     rgba(255,255,255,0.87);
+            --muted:    rgba(255,255,255,0.45);
+            --faint:    rgba(255,255,255,0.20);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { opacity: 0.75; }
+
+        /* ── Nav ── */
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding: 0 1.25rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 56rem;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .nav-wrap {
+            border-bottom: 1px solid var(--border);
+        }
+        .logo-jk {
+            font-family: 'Aldrich', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        .logo-portfolio {
+            font-family: 'Aldrich', sans-serif;
+            font-size: 0.7rem;
+            color: var(--faint);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+        }
+        .nav-back {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* ── Main ── */
+        main {
+            flex: 1;
+            max-width: 56rem;
+            margin: 0 auto;
+            padding: 4rem 1.25rem 6rem;
+            width: 100%;
+        }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+            max-width: 38rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding: 0.55rem 1.1rem;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: opacity 0.15s;
+        }
+        .card .email-btn:hover { opacity: 0.8; }
+
+        .faq-item { border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: 1.25rem; }
+        .faq-item:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+
+        .faq-item h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-item p {
+            color: var(--muted);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.25rem;
+            text-align: center;
+            color: var(--faint);
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav-wrap">
+    <nav>
+        <div style="display:flex;align-items:center;">
+            <a href="/" style="display:flex;align-items:center;gap:0.5rem;">
+                <span class="logo-jk">JK</span>
+                <span class="logo-portfolio">Portfolio</span>
+            </a>
+        </div>
+        <a href="/" class="nav-back">← Back</a>
+    </nav>
+</div>
+
+<main>
+    <p class="eyebrow">Garagiste – Racing Manager</p>
+    <h1>Support</h1>
+    <p class="intro">
+        Having trouble with Garagiste? I'm happy to help. Reach out via email
+        or check the FAQ below for quick answers.
+    </p>
+
+    <!-- Contact card -->
+    <div class="card">
+        <h2>Contact</h2>
+        <p>
+            Send me an email and I'll get back to you as soon as possible.
+            Please include a description of the issue and, if relevant,
+            which device and iOS version you're running.
+        </p>
+        <a href="mailto:johanwilhelmkarlsson@gmail.com" class="email-btn">
+            ✉ johanwilhelmkarlsson@gmail.com
+        </a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>The app crashes on launch</h3>
+            <p>Try restarting your iPhone and relaunching the app.
+               If the issue persists, delete and reinstall from the App Store,
+               then contact me if it still happens.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>My progress was lost</h3>
+            <p>Game data is stored locally on your device.
+               Make sure iCloud backups are enabled so your progress is
+               preserved if you switch phones.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I give feedback or suggest a feature?</h3>
+            <p>Send an email to the address above — all feedback is welcome
+               and actively used to shape future updates.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is the game free?</h3>
+            <p>Yes, Garagiste is free to download and play.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2025 Johan Karlsson · <a href="/garagiste/privacy/">Privacy Policy</a>
+</footer>
+
+</body>
+</html>
