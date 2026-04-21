@@ -15,7 +15,7 @@ import {
 const GITHUB     = 'https://github.com/gurkvatten';
 const LINKEDIN   = 'https://www.linkedin.com/in/johan-karlsson-871537223';
 const EMAIL      = 'mailto:johanwilhelmkarlsson@gmail.com';
-const TESTFLIGHT = 'https://testflight.apple.com/join/b9X5jhaj';
+const APPSTORE = 'https://apps.apple.com/se/app/garagiste/id6743622569';
 
 // ── Content ──────────────────────────────────────────────
 const content = {
@@ -53,7 +53,7 @@ const content = {
             updated: 'Senast uppdaterad: Mars 2026',
             updates: [
                 {date: 'Mar 2026', title: 'Javaverktyg och byggmiljöer klar',       body: 'Färdig med kursen Javaverktyg och byggmiljöer.' },
-                { date: 'Jan 2026', title: 'Allmänt TestFlight-test på gång',       body: 'Min app är redo att släppas till allmänna TestFlight-testare. Nu handlar det om att samla in feedback och finslipa upplevelsen.' },
+                { date: 'Apr 2026', title: 'Garagiste finns nu i App Store!',        body: 'Spelet är nu officiellt ute i App Store. Ladda ner och kör!' },
                 { date: 'Jan 2026', title: 'Utveckling mot databaser avslutad',      body: 'Avslutade kursen Utveckling mot databaser och har byggt upp en stabil grund i databaser och SQL.' },
                 { date: 'Nov 2025', title: 'Javautveckling klar',                    body: 'Jag har avslutat kursen Javautveckling och stärkts i allt från OOP till strukturerad problemlösning.' },
                 { date: 'Okt 2025', title: 'Bygger Racing-manager i SwiftUI',        body: 'Jag implementerar ett system för biluppgraderingar och förarhantering. Fokus på mer interaktivt UI.' },
@@ -63,7 +63,7 @@ const content = {
             sectionNum: '05', label: 'Utvalda Projekt',
             titleLead: 'Garagiste', titleHighlight: 'Racing Manager',
             intro: 'Har du vad som krävs för att leda ett stall till toppen? Ta rollen som Team Principal i detta strategiska managerspel. Du bestämmer taktiken, du bygger bilen, och du tar konsekvenserna.',
-            ctaPrimary: 'Gå med i TestFlight', betaLabel: 'Beta v1.0', betaTip: 'Spelet är i aktiv beta-fas',
+            ctaPrimary: 'Ladda ner på App Store', betaLabel: 'v1.0', betaTip: 'Nu ute i App Store',
             features: [
                 { icon: FaCar,        title: 'Intensiva Race',       description: 'Följ loppen varv för varv. Dina förare reagerar på omgivningen, gör vågade omkörningar och kämpar om varje position.' },
                 { icon: FaChartLine,  title: 'Strategiska Beslut',   description: 'När börjar däcken ta slut? Är det dags för en undercut? Dina beslut från depån avgör om det blir vinst eller förlust.' },
@@ -78,9 +78,9 @@ const content = {
                 { title: 'Team Selection',   description: 'Välj förare och strategi inför helgen',     src: screenshotTeamSelection },
                 { title: 'Upgrades',         description: 'Utveckla bilen och maximera prestanda',     src: screenshotUpgrades },
             ],
-            betaTitle: 'Redo att testa?',
-            betaBody: 'Jag söker testpiloter som vill forma spelets framtid. Ladda ner beta-versionen via TestFlight och ge din feedback direkt i appen.',
-            betaLink: 'Gå till TestFlight inbjudan →',
+            betaTitle: 'Redo att köra?',
+            betaBody: 'Garagiste finns nu i App Store. Ladda ner och ta ditt stall till toppen!',
+            betaLink: 'Hämta Garagiste på App Store →',
         },
         footer: {
             role: 'Utvecklare & Designer',
@@ -121,7 +121,7 @@ const content = {
             updated: 'Last updated: Mars 2026',
             updates: [
                 {date: 'Mar 2026', title: 'Javaverktyg och byggmiljöer done',       body: 'Im done with the course Javaverktyg och byggmiljöer.' },
-                { date: 'Jan 2026', title: 'Public TestFlight testing soon',       body: "My app is ready for a public TestFlight release. Now it's about collecting feedback and polishing the experience." },
+                { date: 'Apr 2026', title: 'Garagiste is now on the App Store!',   body: 'The game is officially live on the App Store. Download it and race to the top!' },
                 { date: 'Jan 2026', title: 'Database Development completed',        body: 'Finished the Database Development course and built a solid foundation in databases and SQL.' },
                 { date: 'Nov 2025', title: 'Java development completed',            body: 'Completed the Java Development course and strengthened everything from OOP to structured problem solving.' },
                 { date: 'Oct 2025', title: 'Building a racing manager in SwiftUI',  body: "Implementing a system for car upgrades and driver management, focusing on clearer and more interactive UI." },
@@ -131,7 +131,7 @@ const content = {
             sectionNum: '05', label: 'Featured Project',
             titleLead: 'Garagiste', titleHighlight: 'Racing Manager',
             intro: 'Do you have what it takes to lead a team to the top? Take the role of Team Principal in this strategic manager game. You set the tactics, you build the car, and you live with the results.',
-            ctaPrimary: 'Join TestFlight', betaLabel: 'Beta v1.0', betaTip: 'The game is in active beta',
+            ctaPrimary: 'Download on App Store', betaLabel: 'v1.0', betaTip: 'Now live on the App Store',
             features: [
                 { icon: FaCar,       title: 'Intense Races',          description: 'Follow races lap by lap. Your drivers react to the surroundings, make bold overtakes, and fight for every position.' },
                 { icon: FaChartLine, title: 'Strategic Decisions',    description: 'When do the tires fade? Is it time for an undercut? Your pit wall calls decide wins and losses.' },
@@ -146,9 +146,9 @@ const content = {
                 { title: 'Team Selection',  description: 'Choose drivers and strategy for the weekend',   src: screenshotTeamSelection },
                 { title: 'Upgrades',        description: 'Develop the car and maximize performance',      src: screenshotUpgrades },
             ],
-            betaTitle: 'Ready to test?',
-            betaBody: "I'm looking for beta testers who want to shape the game's future. Download the beta via TestFlight and send feedback directly in the app.",
-            betaLink: 'Go to the TestFlight invite →',
+            betaTitle: 'Ready to race?',
+            betaBody: 'Garagiste is now available on the App Store. Download it and lead your team to the championship!',
+            betaLink: 'Get Garagiste on the App Store →',
         },
         footer: {
             role: 'Developer & Designer',
@@ -542,7 +542,7 @@ const ProjektSection = ({ lang }) => {
                                         </span>
                                     ))}
                                 </div>
-                                <a href={TESTFLIGHT} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm gap-2">
+                                <a href={APPSTORE} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm gap-2">
                                     <FaApple size={13} /> {p.ctaPrimary}
                                 </a>
                             </div>
@@ -588,7 +588,7 @@ const ProjektSection = ({ lang }) => {
                         <div className="mt-10 text-center bg-base-100/40 border border-primary/15 rounded-2xl p-6">
                             <h4 className="text-xl font-bold mb-2">{p.betaTitle}</h4>
                             <p className="text-base-content/45 text-sm mb-4 max-w-md mx-auto leading-relaxed">{p.betaBody}</p>
-                            <a href={TESTFLIGHT} target="_blank" rel="noopener noreferrer"
+                            <a href={APPSTORE} target="_blank" rel="noopener noreferrer"
                                 className="text-primary font-bold text-sm hover:opacity-70 transition-opacity duration-150">
                                 {p.betaLink}
                             </a>
