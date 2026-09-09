@@ -12,11 +12,12 @@ export const GITHUB = 'https://github.com/gurkvatten';
 export const LINKEDIN = 'https://www.linkedin.com/in/johan-karlsson-871537223';
 export const EMAIL = 'mailto:johanwilhelmkarlsson@gmail.com';
 export const APPSTORE = 'https://apps.apple.com/se/app/garagiste/id6743622569';
+export const DREAMS_OF_SPEED = '/dos/';
 export { profilBild, garagisteIcon };
 
 export const content = {
     sv: {
-        nav: { home: 'Hem', skills: 'Färdigheter', timeline: 'Erfarenhet', news: 'Nyheter', project: 'Projekt', themeAria: 'Växla tema', langAria: 'Byt språk till engelska', langLabel: 'EN', menuAria: 'Öppna meny' },
+        nav: { home: 'Hem', skills: 'Färdigheter', timeline: 'Erfarenhet', news: 'Nyheter', project: 'Projekt', nextProject: 'Nästa projekt', themeAria: 'Växla tema', langAria: 'Byt språk till engelska', langLabel: 'EN', menuAria: 'Öppna meny' },
         hero: { greeting: 'Hej, jag är', firstName: 'Johan', lastName: 'Karlsson', titleRole: 'App Utvecklare', available: 'Öppen för möjligheter', body: 'Jag är en apputvecklare specialiserad på Java och mobilutveckling i Swift och Kotlin. Jag har erfarenhet från fullstack-projekt och frontend med Flutter, och drivs av att skapa rena och funktionella lösningar.', ctaContact: 'Kontakta Mig', ctaGithub: 'GitHub', ctaLinkedin: 'LinkedIn' },
         skills: { sectionNum: '02', titleLead: 'Mina', titleHighlight: 'Färdigheter', body: 'Från mobil till webb – jag bygger i hela stacken.', cats: { mobile: 'Mobil', web: 'Webb', backend: 'Backend', tools: 'Verktyg' } },
         timeline: { sectionNum: '03', title: 'Erfarenhet & Utbildning', items: [
@@ -46,7 +47,7 @@ export const content = {
         footer: { role: 'Utvecklare & Designer', copyright: '© 2025 Johan Karlsson. Byggd med DaisyUI & Tailwind CSS.' },
     },
     en: {
-        nav: { home: 'Home', skills: 'Skills', timeline: 'Experience', news: 'News', project: 'Project', themeAria: 'Toggle theme', langAria: 'Byt språk till svenska', langLabel: 'SV', menuAria: 'Open menu' },
+        nav: { home: 'Home', skills: 'Skills', timeline: 'Experience', news: 'News', project: 'Project', nextProject: 'Next project', themeAria: 'Toggle theme', langAria: 'Byt språk till svenska', langLabel: 'SV', menuAria: 'Open menu' },
         hero: { greeting: "Hi, I'm", firstName: 'Johan', lastName: 'Karlsson', titleRole: 'App Developer', available: 'Open to opportunities', body: "I'm an app developer specializing in Java and mobile development with Swift and Kotlin. I have experience in both fullstack projects and frontend work with Flutter, and I enjoy building clean, functional solutions.", ctaContact: 'Contact Me', ctaGithub: 'GitHub', ctaLinkedin: 'LinkedIn' },
         skills: { sectionNum: '02', titleLead: 'My', titleHighlight: 'Skills', body: 'From mobile to web — I build across the full stack.', cats: { mobile: 'Mobile', web: 'Web', backend: 'Backend', tools: 'Tools' } },
         timeline: { sectionNum: '03', title: 'Experience & Education', items: [
